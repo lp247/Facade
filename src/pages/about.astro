@@ -1,0 +1,25 @@
+---
+import Badge from "../components/Badge.astro";
+import HeadedPage from "../layouts/HeadedPage.astro";
+
+const technologies = [
+    {name: "Typescript"},
+    {name: "React.js"},
+    {name: "TailwindCSS"},
+    {name: "Node.js"},
+    {name: "Docker"},
+    {name: "Astro"},
+    {name: "Vercel"},
+    {name: "Git"},
+    {name: "Rust"},
+];
+---
+
+<HeadedPage header="About Me">
+    <p class="text-xl font-medium leading-normal tracking-tight">Sample Text</p>
+    <h2>My Interests</h2>
+    <h2>Technologies I am Working with</h2>
+    <ul class="flex flex-row items-center justify-start flex-wrap gap-4">
+        {technologies.map(tech => <Badge>{tech.name}</Badge>)}
+    </ul>
+</HeadedPage>

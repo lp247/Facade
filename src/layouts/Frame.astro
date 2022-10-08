@@ -1,0 +1,29 @@
+---
+import "../main.css";
+
+export interface FrameProps {
+    title: string;
+}
+
+const {title} = Astro.props as FrameProps;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+
+<body class="m-0 h-screen w-screen">
+    <div class="w-screen max-w-[800px] p-8 mx-auto">
+        <slot></slot>
+    </div>
+</body>
+
+</html>
