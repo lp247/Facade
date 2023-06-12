@@ -1,6 +1,6 @@
 ---
 import {getCollection, CollectionEntry} from 'astro:content';
-import Frame from "@layouts/Frame.astro";
+import WithHeading from "@layouts/WithHeading.astro";
 import TechBadge from "@components/TechBadge.astro";
 
 export async function getStaticPaths() {
@@ -17,10 +17,8 @@ interface Props {
 const {entry} = Astro.props as Props;
 const {Content} = await entry.render();
 ---
-<Frame>
-    <h1>{entry.data.name}</h1>
-    <p class="mt-2 text-2xl font-light">{entry.data.summary}</p>
-    <div class="mt-8 mb-14">
+<WithHeading heading={entry.data.name} subheading={entry.data.summary}>
+    <div class="mb-14">
         <div class="flex row border-box gap-1.5">
             {entry.data.techs.map(tech => <TechBadge tech={tech.id} />)}
         </div>
@@ -34,4 +32,4 @@ const {Content} = await entry.render();
         </a>}
     </div>
     <Content />
-</Frame>
+</WithHeading>

@@ -1,11 +1,11 @@
 ---
 import {getCollection} from "astro:content";
-import HeadedPage from "@layouts/HeadedPage.astro";
+import WithHeading from "@layouts/WithHeading.astro";
 
 const projects = await getCollection("project");
 ---
 
-<HeadedPage header="Projects">
+<WithHeading heading="Projects">
     <ul class="">
         {
             projects.map((project) => (
@@ -15,4 +15,4 @@ const projects = await getCollection("project");
             ))
         }
     </ul>
-</HeadedPage>
+</WithHeading>
