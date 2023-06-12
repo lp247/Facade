@@ -6,6 +6,7 @@ const project = defineCollection({
         name: z.string(),
         summary: z.string(),
         techs: z.array(reference("tech")),
+        githubLink: z.nullable(z.string().url())
     })
 });
 

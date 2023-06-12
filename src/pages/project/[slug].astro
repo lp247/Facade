@@ -19,9 +19,19 @@ const {Content} = await entry.render();
 ---
 <Frame>
     <h1>{entry.data.name}</h1>
-    <p>{entry.data.summary}</h1>
-    <div class="flex row border-box gap-1.5">
-        {entry.data.techs.map(tech => (<TechBadge tech={tech.id} />))}
+    <p class="mt-2 text-2xl font-light">{entry.data.summary}</p>
+    <div class="mt-8 mb-14">
+        <div class="flex row border-box gap-1.5">
+            {entry.data.techs.map(tech => <TechBadge tech={tech.id} />)}
+        </div>
+        {entry.data.githubLink && <a class="block font-bold text-xs mt-4 flex row items-center gap-1" href={entry.data.githubLink}>
+            Code on Github
+            <svg class="h-2.5" viewBox="0 0 100 100">
+                <line stroke-width="16" stroke-linecap="square" x1="0" y1="50" x2="80" y2="50" stroke="black" />
+                <line stroke-width="16" stroke-linecap="square" x1="58" y1="20" x2="88" y2="50" stroke="black" />
+                <line stroke-width="16" stroke-linecap="square" x1="58" y1="80" x2="88" y2="50" stroke="black" />
+            </svg>
+        </a>}
     </div>
     <Content />
 </Frame>
