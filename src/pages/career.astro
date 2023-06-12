@@ -1,0 +1,14 @@
+---
+import {getCollection} from 'astro:content';
+import HeadedPage from "@layouts/HeadedPage.astro";
+
+const entries = await getCollection("job");
+---
+<HeadedPage header="Work Experience">
+    {entries.map(entry => (
+        <h2>{entry.data.jobDescription} @ {entry.data.company}</h1>
+        <p>{new Date(entry.data.startDate).toISOString().substring(0, 10)} - {!!entry.data.endDate ? new Date(entry.data.endDate).toISOString().substring(0, 9) : "Now"}</p>
+        
+        {entry.data.tasks.length > 0 && <ul>{entry.data.tasks.map(task => <li>{task}</li>)}</ul>}
+    ))}
+</HeadedPage>

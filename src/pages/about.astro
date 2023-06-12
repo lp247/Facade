@@ -1,25 +1,28 @@
 ---
-import Badge from "../components/Badge.astro";
+import TechBadge from "../components/TechBadge.astro";
 import HeadedPage from "../layouts/HeadedPage.astro";
 
 const technologies = [
-    {name: "Typescript"},
-    {name: "React.js"},
-    {name: "TailwindCSS"},
-    {name: "Node.js"},
-    {name: "Docker"},
-    {name: "Astro"},
-    {name: "Vercel"},
-    {name: "Git"},
-    {name: "Rust"},
+    {name: "Typescript", link: "https://www.typescriptlang.org/"},
+    {name: "React.js", link: "https://reactjs.org/"},
+    {name: "TailwindCSS", link: "https://tailwindcss.com/"},
+    {name: "Node.js", link: "https://nodejs.org/en/"},
+    {name: "Docker", link: "https://www.docker.com/"},
+    {name: "Astro", link: "https://astro.build/"},
+    {name: "Vercel", link: "https://vercel.com"},
+    {name: "Git", link: "https://git-scm.com/"},
+    {name: "GitHub", link: "https://github.com/"},
+    {name: "Rust", link: "https://www.rust-lang.org/"},
+    {name: "TensorFlow", link: "https://www.tensorflow.org/"},
 ];
 ---
 
 <HeadedPage header="About Me">
-    <p class="text-xl font-medium leading-normal tracking-tight">Sample Text</p>
-    <h2>My Interests</h2>
+    <p>Hi, I am Peter. I am a software developer located in Frankfurt, Germany.</p>
+    <p>I found my interest in programming while studying physics where I realized the potential of software to solve problems indefinitely and automatically. The ability of software to automate tasks, reduce errors at work and free people of complex or mundane tasks is what drives me in my profession as a software developer.</p>
+    <p>Software development for me is foremost a means to achieve those goals. But I appreciate no less the beauty of proper programming itself as it acts firstly as an expression of engineering art and secondly directly translate into a beautiful product.</p>
     <h2>Technologies I am Working with</h2>
     <ul class="flex flex-row items-center justify-start flex-wrap gap-4">
-        {technologies.map(tech => <Badge>{tech.name}</Badge>)}
+        {technologies.map(tech => <TechBadge link={tech.link}>{tech.name}</TechBadge>)}
     </ul>
 </HeadedPage>

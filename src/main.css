@@ -4,12 +4,15 @@
 
 @layer base {
   p {
-    @apply text-slate-600 text-xl font-medium leading-normal tracking-tight;
+    @apply text-slate-600 text-xl font-medium leading-normal tracking-tight my-4;
   }
   h1 {
-    @apply text-5xl font-semibold mt-24 mb-16;
+    @apply text-5xl font-bold mt-10;
   }
   h2 {
-    @apply text-3xl font-semibold mt-16 mb-10;
+    @apply text-2xl font-semibold mt-10;
+  }
+  ul {
+    @apply list-disc;
   }
 }

@@ -1,0 +1,18 @@
+---
+import {getCollection} from "astro:content";
+import HeadedPage from "@layouts/HeadedPage.astro";
+
+const projects = await getCollection("project");
+---
+
+<HeadedPage header="Projects">
+    <ul class="">
+        {
+            projects.map((project) => (
+                <li>
+                    <a href={"project/" + project.slug}>{project.data.name}: {project.data.summary}</a>
+                </li>
+            ))
+        }
+    </ul>
+</HeadedPage>
