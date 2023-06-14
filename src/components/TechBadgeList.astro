@@ -1,0 +1,12 @@
+---
+import TechBadge from "@components/TechBadge.astro";
+
+interface Props {
+    techs: string[];
+}
+
+const {techs} = Astro.props as Props;
+---
+<div class="flex row border-box gap-1.5">
+    {techs.map(tech => <TechBadge tech={tech} />)}
+</div>

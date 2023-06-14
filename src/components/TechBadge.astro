@@ -8,11 +8,6 @@ interface Props {
 const {tech: techID} = Astro.props as Props;
 const tech = await getEntry("tech", techID);
 ---
-<style>
-    .root:hover > p {
-        display: block;
-    }
-</style>
 <a href={tech?.data.link} target="_blank" class="border-2 border-slate-600 px-3 py-1 rounded-md hover:bg-slate-600 hover:text-slate-100 text-xs font-bold text-slate-600">
     {tech?.data.name}
 </a>
