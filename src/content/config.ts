@@ -20,13 +20,13 @@ const tech = defineCollection({
 });
 
 const job = defineCollection({
-    type: "data",
+    type: "content",
     schema: z.object({
         company: z.string(),
+        location: z.string(),
         jobDescription: z.string(),
-        startDate: z.string().datetime(),
-        endDate: z.nullable(z.string().datetime()),
-        tasks: z.array(z.string()),
+        startDate: z.date(),
+        endDate: z.nullable(z.date()),
         techs: z.array(reference("tech"))
     })
 });

@@ -198,56 +198,119 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"project": {
+		"job": {
+"lotus.mdx": {
+	id: "lotus.mdx";
+  slug: "lotus";
+  body: string;
+  collection: "job";
+  data: any
+} & { render(): Render[".mdx"] };
+"sap.mdx": {
+	id: "sap.mdx";
+  slug: "sap";
+  body: string;
+  collection: "job";
+  data: any
+} & { render(): Render[".mdx"] };
+"wearegroup.mdx": {
+	id: "wearegroup.mdx";
+  slug: "wearegroup";
+  body: string;
+  collection: "job";
+  data: any
+} & { render(): Render[".mdx"] };
+};
+"project": {
 "facade.mdx": {
 	id: "facade.mdx";
   slug: "facade";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
+} & { render(): Render[".mdx"] };
+"opsmagna.mdx": {
+	id: "opsmagna.mdx";
+  slug: "opsmagna";
+  body: string;
+  collection: "project";
+  data: any
 } & { render(): Render[".mdx"] };
 };
 
 	};
 
 	type DataEntryMap = {
-		"job": {
-"sap": {
-	id: "sap";
-  collection: "job";
-  data: InferEntrySchema<"job">
-};
-};
-"tech": {
+		"tech": {
 "astro": {
 	id: "astro";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
+};
+"docker": {
+	id: "docker";
+  collection: "tech";
+  data: any
 };
 "git": {
 	id: "git";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "javascript": {
 	id: "javascript";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
+};
+"kotlin": {
+	id: "kotlin";
+  collection: "tech";
+  data: any
+};
+"php": {
+	id: "php";
+  collection: "tech";
+  data: any
+};
+"react": {
+	id: "react";
+  collection: "tech";
+  data: any
+};
+"reactnative": {
+	id: "reactnative";
+  collection: "tech";
+  data: any
+};
+"redux": {
+	id: "redux";
+  collection: "tech";
+  data: any
+};
+"strapi": {
+	id: "strapi";
+  collection: "tech";
+  data: any
+};
+"swift": {
+	id: "swift";
+  collection: "tech";
+  data: any
 };
 "tailwindcss": {
 	id: "tailwindcss";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "typescript": {
 	id: "typescript";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "vercel": {
 	id: "vercel";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 };
 
@@ -255,5 +318,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }

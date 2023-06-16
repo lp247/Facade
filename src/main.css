@@ -3,16 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  p {
-    @apply text-slate-600 text-xl font-medium leading-normal tracking-tight my-4;
-  }
-  h1 {
-    @apply text-5xl font-bold mt-10 mb-4;
-  }
-  h2 {
-    @apply text-2xl font-semibold mt-10 mb-4;
-  }
-  ul {
-    @apply list-disc;
-  }
+    * {
+        @apply text-slate-900
+    }
+    li {
+        @apply ml-6;
+    }
+    p {
+        @apply my-4;
+    }
+    h1 {
+        @apply text-5xl font-bold mt-10 mb-4;
+    }
+    h2 {
+        @apply text-2xl font-semibold mt-10 mb-4;
+    }
+    ul {
+        @apply list-disc;
+    }
 }
