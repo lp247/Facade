@@ -1,0 +1,16 @@
+---
+name: UDP on an FPGA
+summary: "[Study Project] Implementation of the UDP Network Protocol on an FPGA chip"
+techs:
+- fpga
+- hls
+- udp
+- cpp
+- vivado
+githubLink: https://github.com/tavnvs/FPGA-Networking
+---
+*You are probably asking yourself what an FPGA is; just click the FPGA tag above to read more!*
+
+FPGAs are widely used in particle physics - my field of study - at particle accelerators due to their immense performance in handling data. As I got more and more interested in programming and computer science while doing my masters studies, I found more interest in FPGAs as they are a relatively exotic technology promising extraordinary performance and performance per watt. This led me to work on it and implementation of some basic network logic was the first project I did.
+
+This project implements the UDP protocol on an FPGA chip. In the end I could connect my PC via network cable to my FPGA development board and send UDP packets to the board which would then be echoed to my PC. The implementation involved from top to bottom UDP packet de-/serialization, IP packet de-/serialization, Ethernet frame de-/serialization and communication with an ethernet PHY chip to receive and send data. All this work was done via Vivado HLS, a tool where you can write C and C++ code to generate your hardware logic.

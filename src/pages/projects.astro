@@ -7,8 +7,8 @@ const projects = await getCollection("project");
 <WithHeading heading="Projects">
     {projects.map((project) => (
         <a class="block" href={"project/" + project.slug}>
-            <h2>{project.data.name}</h2>
-            <p class="mt-0 text-sm">{project.data.summary}</p>
+            <h2 class="mb-0">{project.data.name}</h2>
+            <p class="mt-0">{project.data.summary}</p>
         </a>
     ))}
 </WithHeading>

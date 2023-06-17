@@ -229,9 +229,37 @@ declare module 'astro:content' {
   collection: "project";
   data: any
 } & { render(): Render[".mdx"] };
+"fpgaml.mdx": {
+	id: "fpgaml.mdx";
+  slug: "fpgaml";
+  body: string;
+  collection: "project";
+  data: any
+} & { render(): Render[".mdx"] };
+"fpgaudp.mdx": {
+	id: "fpgaudp.mdx";
+  slug: "fpgaudp";
+  body: string;
+  collection: "project";
+  data: any
+} & { render(): Render[".mdx"] };
 "opsmagna.mdx": {
 	id: "opsmagna.mdx";
   slug: "opsmagna";
+  body: string;
+  collection: "project";
+  data: any
+} & { render(): Render[".mdx"] };
+"twitchchatbot.mdx": {
+	id: "twitchchatbot.mdx";
+  slug: "twitchchatbot";
+  body: string;
+  collection: "project";
+  data: any
+} & { render(): Render[".mdx"] };
+"unitygame.mdx": {
+	id: "unitygame.mdx";
+  slug: "unitygame";
   body: string;
   collection: "project";
   data: any
@@ -247,13 +275,38 @@ declare module 'astro:content' {
   collection: "tech";
   data: any
 };
+"cpp": {
+	id: "cpp";
+  collection: "tech";
+  data: any
+};
+"csharp": {
+	id: "csharp";
+  collection: "tech";
+  data: any
+};
 "docker": {
 	id: "docker";
   collection: "tech";
   data: any
 };
+"fpga": {
+	id: "fpga";
+  collection: "tech";
+  data: any
+};
 "git": {
 	id: "git";
+  collection: "tech";
+  data: any
+};
+"hls": {
+	id: "hls";
+  collection: "tech";
+  data: any
+};
+"hls4ml": {
+	id: "hls4ml";
   collection: "tech";
   data: any
 };
@@ -272,6 +325,16 @@ declare module 'astro:content' {
   collection: "tech";
   data: any
 };
+"python": {
+	id: "python";
+  collection: "tech";
+  data: any
+};
+"pytorch": {
+	id: "pytorch";
+  collection: "tech";
+  data: any
+};
 "react": {
 	id: "react";
   collection: "tech";
@@ -284,6 +347,11 @@ declare module 'astro:content' {
 };
 "redux": {
 	id: "redux";
+  collection: "tech";
+  data: any
+};
+"rust": {
+	id: "rust";
   collection: "tech";
   data: any
 };
@@ -302,13 +370,33 @@ declare module 'astro:content' {
   collection: "tech";
   data: any
 };
+"tensorflow": {
+	id: "tensorflow";
+  collection: "tech";
+  data: any
+};
 "typescript": {
 	id: "typescript";
   collection: "tech";
   data: any
 };
+"udp": {
+	id: "udp";
+  collection: "tech";
+  data: any
+};
+"unity": {
+	id: "unity";
+  collection: "tech";
+  data: any
+};
 "vercel": {
 	id: "vercel";
+  collection: "tech";
+  data: any
+};
+"vivado": {
+	id: "vivado";
   collection: "tech";
   data: any
 };
