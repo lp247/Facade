@@ -10,7 +10,7 @@ const {heading, subheading} = Astro.props as Props;
 ---
 
 <Empty title={heading}>
-    <h1 class={subheading? "" : "mb-12"}>{heading}</h1>
-    {subheading && <p class="mb-12 mt-2 text-2xl font-light">{subheading}</p>}
+    <h1>{heading}</h1>
+    {subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
     <slot></slot>
 </Empty>

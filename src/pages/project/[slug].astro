@@ -18,7 +18,8 @@ const {entry} = Astro.props as Props;
 const {Content} = await entry.render();
 ---
 <WithHeading heading={entry.data.name} subheading={entry.data.summary}>
-    <div class="mb-14">
+    <hr class="mb-4 mt-4" />
+    <div>
         <TechBadgeList techs={entry.data.techs.map(tech => tech.id)} />
         {entry.data.githubLink && <a class="block font-bold text-xs mt-4 flex row items-center gap-1" href={entry.data.githubLink}>
             Code on Github
@@ -29,5 +30,6 @@ const {Content} = await entry.render();
             </svg>
         </a>}
     </div>
+    <hr class="mt-4 mb-4" />
     <Content />
 </WithHeading>
