@@ -1,15 +1,23 @@
 ---
 import {getCollection} from "astro:content";
 import WithHeading from "@layouts/WithHeading.astro";
+import TechBadgeList from "@components/TechBadgeList.astro";
+import ProjectStatusBadge from "@components/ProjectStatusBadge.astro";
 
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 ---
 <WithHeading heading="Projects">
-    {sortedProjects.map((project) => (
-        <a class="block" href={"project/" + project.slug}>
-            <h2 class="mb-0">{project.data.name}</h2>
-            <p class="mt-0">{project.data.summary}</p>
-        </a>
-    ))}
+    <div class="flex flex-col gap-12 mt-12">
+        {sortedProjects.map((project) => (
+            <div class="flex flex-col gap-2 items-start">
+                <a href={"project/" + project.slug}>
+                    <h2 class="m-0">{project.data.name}</h2>
+                    <p class="m-0">{project.data.summary}</p>
+                </a>
+                <ProjectStatusBadge status={project.data.status} />
+                <TechBadgeList techs={project.data.techs.map(tech => tech.id)} />
+            </div>
+        ))}
+    </div>
 </WithHeading>

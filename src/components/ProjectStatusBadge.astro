@@ -23,6 +23,6 @@ function getColorClasses(status: Status): string {
     }
 }
 
-const {status} = Astro.props as Props;
+const {status, class: className} = Astro.props as Props;
 ---
-<span class:list={[badgeBaseStyle, getColorClasses(status)]}>{status}</span>
+<span class:list={[badgeBaseStyle, getColorClasses(status), className]}>{status}</span>
