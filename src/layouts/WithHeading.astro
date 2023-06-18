@@ -1,15 +1,18 @@
 ---
 import Empty from "@layouts/Empty.astro";
+import BreadCrumbs, {BreadCrumb} from "@components/BreadCrumbs.astro";
 
 interface Props {
     heading: string;
     subheading?: string;
+    breadCrumbs: BreadCrumb[];
 }
 
-const {heading, subheading} = Astro.props as Props;
+const {heading, subheading, breadCrumbs} = Astro.props as Props;
 ---
 
 <Empty title={heading}>
+    <BreadCrumbs breadCrumbs={breadCrumbs} />    
     <h1>{heading}</h1>
     {subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
     <slot></slot>

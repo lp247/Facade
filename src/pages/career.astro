@@ -1,12 +1,15 @@
 ---
 import {getCollection} from 'astro:content';
 import WithHeading from "@layouts/WithHeading.astro";
+import {breadCrumbs as rootBreadCrumbs} from "@pages/index.astro";
 
 const entries = await getCollection("job");
 entries.sort((a, b) => a.data.startDate > b.data.startDate ? -1 : 1);
 const entryContents = await Promise.all(entries.map(entry => entry.render()));
+
+const breadCrumbs = [...rootBreadCrumbs, {text: "Career", link: "/career"}];
 ---
-<WithHeading heading="Work Experience">
+<WithHeading heading="Work Experience" breadCrumbs={breadCrumbs}>
     {entries.map((entry, index) => {
         const Content = entryContents[index].Content;
         const startString = new Date(entry.data.startDate).toISOString().substring(0, 10);

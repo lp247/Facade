@@ -1,6 +1,8 @@
 ---
 
-import Frame from '../layouts/Frame.astro';
+import Frame from '../layouts/Empty.astro';
+
+export const breadCrumbs = [{text: "Root", link: "/"}];
 
 const internalLinks = [
     {href: "/about", text: "About Me"},
