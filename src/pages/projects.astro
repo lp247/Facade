@@ -3,14 +3,11 @@ import {getCollection} from "astro:content";
 import WithHeading from "@layouts/WithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
 import ProjectStatusBadge from "@components/ProjectStatusBadge.astro";
-import {breadCrumbs as rootBreadCrumbs} from "@pages/index.astro";
-
-export const breadCrumbs = [...rootBreadCrumbs, {text: "Projects", link: "/projects"}];
 
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 ---
-<WithHeading heading="Projects" breadCrumbs={breadCrumbs}>
+<WithHeading heading="Projects">
     <div class="flex flex-col gap-12 mt-12">
         {sortedProjects.map((project) => (
             <div class="flex flex-col gap-2 items-start">

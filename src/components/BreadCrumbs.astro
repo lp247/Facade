@@ -1,17 +1,57 @@
 ---
-export interface BreadCrumbs {
+import {getCollection, CollectionEntry} from "astro:content";
+
+type BreadCrumb = {
     text: string;
-    link: string;
+    link?: string;
 }
 
-interface Props {
-    breadCrumbs: BreadCrumbs[];
+type PathData<Parent> = {
+    text: string;
+    parent: Parent | null;
 }
 
-const {breadCrumbs} = Astro.props as Props;
+export type PathList<Path extends string, Parent extends String> = Record<Path, PathData<Parent>>
+
+const projects = await getCollection("project");
+
+type ProjectPath = `/project/${CollectionEntry<"project">["slug"]}`;
+const allProjectPaths = projects.reduce((accu, project) => {
+    const path = "/project/" + project.slug as `/project/${typeof project.slug}`;
+    accu[path] = {text: project.data.name, parent: "/projects"};
+    return accu;
+}, {} as PathList<ProjectPath, "/projects">);
+
+type Path = ProjectPath | "/" | "/projects" | "/about" | "/career";
+const allPaths: PathList<Path, Path> = {
+    "/": {text: "Root", parent: null},
+    "/projects": {text: "Projects", parent: "/"},
+    "/about": {text: "About Me", parent: "/"},
+    "/career": {text: "Career", parent: "/"},
+    ...allProjectPaths,
+};
+
+function normalize(path: Path): Path {
+    if (path.endsWith("/")) {
+        path = path.slice(0, -1) as Path;
+    }
+    return path;
+}
+
+function getBreadCrumbs(path: Path): BreadCrumb[] {
+    const breadCrumbs: BreadCrumb[] = [];
+    let currentPath: Path | null = normalize(path);
+    while (currentPath !== null) {
+        breadCrumbs.unshift({text: allPaths[currentPath].text, link: currentPath});
+        currentPath = allPaths[currentPath].parent;
+    }
+    return breadCrumbs;
+}
+
+const currentPath = Astro.url.pathname as Path;
 ---
 <div class="flex flex-row gap-4 items-center">
-    {breadCrumbs.flatMap(node => [
+    {getBreadCrumbs(currentPath).flatMap(node => [
         <svg class="h-2.5" viewBox="0 0 100 100">
             <line stroke-width="16" stroke-linecap="square" x1="31" y1="12" x2="69" y2="50" stroke="black" />
             <line stroke-width="16" stroke-linecap="square" x1="31" y1="88" x2="69" y2="50" stroke="black" />

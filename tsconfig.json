@@ -5,7 +5,8 @@
         "paths": {
             "@layouts/*": ["src/layouts/*"],
             "@components/*": ["src/components/*"],
-            "@pages/*": ["src/pages/*"]
+            "@pages/*": ["src/pages/*"],
+            "@utils/*": ["src/utils/*"]
         },
         // Enable top-level await, and other modern ESM features.
         "target": "ESNext",

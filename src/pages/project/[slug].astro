@@ -3,8 +3,6 @@ import {getCollection, CollectionEntry} from 'astro:content';
 import WithHeading from "@layouts/WithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
 import ProjectStatusBadge from "@components/ProjectStatusBadge.astro";
-import {badgeBaseStyle} from '@components/styles';
-import {breadCrumbs as projectsBreadCrumbs} from "@pages/projects.astro";
 
 export async function getStaticPaths() {
     const entries = await getCollection("project");
@@ -19,10 +17,8 @@ interface Props {
 
 const {entry} = Astro.props as Props;
 const {Content} = await entry.render();
-
-const breadCrumbs = [...projectsBreadCrumbs, {text: entry.data.name, link: entry.slug}];
 ---
-<WithHeading heading={entry.data.name} subheading={entry.data.summary} breadCrumbs={breadCrumbs}>
+<WithHeading heading={entry.data.name} subheading={entry.data.summary}>
     <hr class="mb-4 mt-4" />
     <div class="flex row mb-4 gap-4 items-center">
         <span>{entry.data.year}</span>
