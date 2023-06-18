@@ -1,0 +1,28 @@
+---
+import type {CollectionEntry} from "astro:content";
+import {badgeBaseStyle} from "@components/styles";
+
+type Status = CollectionEntry<"project">["data"]["status"];
+
+interface Props {
+    status: Status;
+}
+
+function getColorClasses(status: Status): string {
+    switch (status) {
+        case "In Progress":
+            return "bg-green-300 border-green-400 text-green-600";
+        case "Finished":
+            return "bg-blue-300 border-blue-400 text-blue-600";
+        case "On Hold":
+            return "bg-slate-300 border-slate-400 text-slate-500";
+        case "Planned":
+            return "";
+        default:
+            throw new Error("Unsupported status");
+    }
+}
+
+const {status} = Astro.props as Props;
+---
+<span class:list={[badgeBaseStyle, getColorClasses(status)]}>{status}</span>

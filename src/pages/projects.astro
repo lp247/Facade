@@ -3,9 +3,10 @@ import {getCollection} from "astro:content";
 import WithHeading from "@layouts/WithHeading.astro";
 
 const projects = await getCollection("project");
+const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 ---
 <WithHeading heading="Projects">
-    {projects.map((project) => (
+    {sortedProjects.map((project) => (
         <a class="block" href={"project/" + project.slug}>
             <h2 class="mb-0">{project.data.name}</h2>
             <p class="mt-0">{project.data.summary}</p>
