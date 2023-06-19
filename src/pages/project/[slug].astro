@@ -1,6 +1,6 @@
 ---
 import {getCollection, CollectionEntry} from 'astro:content';
-import WithHeading from "@layouts/WithHeading.astro";
+import FrameWithHeading from "@layouts/FrameWithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
 import ProjectStatus from "@components/ProjectStatus.astro";
 
@@ -18,7 +18,7 @@ interface Props {
 const {entry} = Astro.props as Props;
 const {Content} = await entry.render();
 ---
-<WithHeading heading={entry.data.name} subheading={entry.data.summary}>
+<FrameWithHeading heading={entry.data.name} subheading={entry.data.summary}>
     <hr class="mb-4 mt-4" />
     <div class="flex row mb-4 gap-4 items-center">
         <span>{entry.data.year}</span>
@@ -36,4 +36,4 @@ const {Content} = await entry.render();
     </a>}
     <hr class="mt-4 mb-4" />
     <Content />
-</WithHeading>
+</FrameWithHeading>

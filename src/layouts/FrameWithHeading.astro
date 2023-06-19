@@ -1,5 +1,5 @@
 ---
-import Empty from "@layouts/Empty.astro";
+import Frame from "@layouts/Frame.astro";
 import BreadCrumbs from "@components/BreadCrumbs.astro";
 
 interface Props {
@@ -10,9 +10,9 @@ interface Props {
 const {heading, subheading} = Astro.props as Props;
 ---
 
-<Empty title={heading}>
+<Frame title={heading}>
     <BreadCrumbs />    
     <h1>{heading}</h1>
     {subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
     <slot></slot>
-</Empty>
+</Frame>

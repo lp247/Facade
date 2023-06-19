@@ -1,13 +1,13 @@
 ---
 import {getCollection} from "astro:content";
-import WithHeading from "@layouts/WithHeading.astro";
+import FrameWithHeading from "@layouts/FrameWithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
 import ProjectStatus from "@components/ProjectStatus.astro";
 
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 ---
-<WithHeading heading="Projects">
+<FrameWithHeading heading="Projects">
     <div class="flex flex-col gap-12 mt-12">
         {sortedProjects.map((project) => {
             const href = "/project/" + project.slug;
@@ -20,4 +20,4 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
             );
         })}
     </div>
-</WithHeading>
+</FrameWithHeading>

@@ -1,5 +1,5 @@
 ---
-import WithHeading from "@layouts/WithHeading.astro";
+import FrameWithHeading from "@layouts/FrameWithHeading.astro";
 import type {MDXLayoutProps} from "astro";
 
 interface MDXFrontmatter {
@@ -10,6 +10,6 @@ interface MDXFrontmatter {
 const {frontmatter} = Astro.props as MDXLayoutProps<MDXFrontmatter>;
 ---
 
-<WithHeading heading={frontmatter.heading} subheading={frontmatter.subheading}>
+<FrameWithHeading heading={frontmatter.heading} subheading={frontmatter.subheading}>
     <slot />
-</WithHeading>
+</FrameWithHeading>
