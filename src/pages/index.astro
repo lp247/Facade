@@ -1,24 +1,13 @@
 ---
-
-import Frame from '../layouts/Empty.astro';
+import Empty from '@layouts/Empty.astro';
 
 const internalLinks = [
     {href: "/about", text: "About Me"},
     {href: "/projects", text: "Projects"},
-    {href: "/contact", text: "Contact"}
+    {href: "/career", text: "Career"}
 ];
-
-const externalLinks = [
-    {href: "www.github.com", text: "GitHub"},
-    {href: "www.linkedin.com", text: "LinkedIn"},
-    {href: "www.xing.com", text: "Xing"},
-    {href: "www.twitter.com", text: "Twitter"},
-    {href: "www.medium.com", text: "Medium"}
-]
-
 ---
-
-<Frame title="Peter Lehnhardt">
+<Empty title="Peter Lehnhardt">
     <div class="flex flex-col items-start justify-center gap-8 h-screen">
         <h1 class="text-slate-900 text-7xl font-extrabold tracking-tighter">Peter Lehnhardt</h1>
         <p class="text-3xl leading-normal">I am a passionate software
@@ -28,9 +17,6 @@ const externalLinks = [
             page!</p>
         <div class="flex flex-row items-center justify-start justify-self-start gap-8 mt-8">
             {internalLinks.map(link => <a href={link.href} class="font-extrabold text-xl">{link.text}</a>)}
-        </div>
-        <div class="flex flex-row items-center justify-start justify-self-start gap-8">
-            {externalLinks.map(link => <a href={link.href} class="font-extrabold text-xl">{link.text}</a>)}
         </div>
     </div>
 </Frame>
