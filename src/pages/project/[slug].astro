@@ -2,7 +2,7 @@
 import {getCollection, CollectionEntry} from 'astro:content';
 import WithHeading from "@layouts/WithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
-import ProjectStatusBadge from "@components/ProjectStatusBadge.astro";
+import ProjectStatus from "@components/ProjectStatus.astro";
 
 export async function getStaticPaths() {
     const entries = await getCollection("project");
@@ -23,7 +23,7 @@ const {Content} = await entry.render();
     <div class="flex row mb-4 gap-4 items-center">
         <span>{entry.data.year}</span>
         <span>|</span>
-        <ProjectStatusBadge status={entry.data.status} />
+        <ProjectStatus status={entry.data.status} />
     </div>
     <TechBadgeList techs={entry.data.techs.map(tech => tech.id)} />
     {entry.data.githubLink && <a class="block font-bold text-xs mt-4 flex row items-center gap-1" href={entry.data.githubLink}>
