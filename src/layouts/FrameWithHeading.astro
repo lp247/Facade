@@ -4,7 +4,7 @@ import BreadCrumbs from "@components/BreadCrumbs.astro";
 
 interface Props {
     heading: string;
-    subheading?: string;
+    subheading?: string | undefined;
 }
 
 const {heading, subheading} = Astro.props as Props;
