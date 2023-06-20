@@ -1,5 +1,7 @@
 {
     "name": "Typescript",
     "description": "Typescript is an extension of javascript with types",
-    "link": "https://www.typescriptlang.org"
+    "website": "https://www.typescriptlang.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/TypeScript",
+    "github": "https://github.com/microsoft/TypeScript"
 }

@@ -1,5 +1,7 @@
 {
     "name": "Swift",
     "description": "The powerful programming language that’s also easy to learn",
-    "link": "https://developer.apple.com/swift/"
+    "website": "https://www.swift.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/Swift_(programming_language)",
+    "github": "https://github.com/apple/swift"
 }

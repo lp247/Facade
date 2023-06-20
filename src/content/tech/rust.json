@@ -1,5 +1,7 @@
 {
     "name": "Rust",
     "description": "A language empowering everyone to build reliable and efficient software.",
-    "link": "https://www.rust-lang.org"
+    "website": "https://www.rust-lang.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/Rust_(programming_language)",
+    "github": "https://github.com/rust-lang/rust"
 }

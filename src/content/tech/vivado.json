@@ -1,5 +1,6 @@
 {
     "name": "Vivado",
     "description": "AMD/Xilinx design software for AMD/Xilinx FPGAs",
-    "link": "https://www.xilinx.com/products/design-tools/vivado.html"
+    "website": "https://www.xilinx.com/products/design-tools/vivado.html",
+    "wikipedia": "https://en.wikipedia.org/wiki/Xilinx_Vivado"
 }

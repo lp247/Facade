@@ -1,5 +1,7 @@
 {
     "name": "Pytorch",
     "description": "Machine Learning Framework",
-    "link": "https://pytorch.org"
+    "website": "https://pytorch.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/PyTorch",
+    "github": "https://github.com/pytorch/pytorch"
 }

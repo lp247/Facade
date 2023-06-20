@@ -6,7 +6,7 @@ const project = defineCollection({
         name: z.string(),
         summary: z.string(),
         techs: z.array(reference("tech")),
-        githubLink: z.nullable(z.string().url()),
+        github: z.optional(z.string().url()),
         year: z.number(),
         status: z.enum(["In Progress", "Finished", "On Hold", "Planned"])
     })
@@ -17,7 +17,9 @@ const tech = defineCollection({
     schema: z.object({
         name: z.string(),
         description: z.string(),
-        link: z.string().url()
+        website: z.optional(z.string().url()),
+        github: z.optional(z.string().url()),
+        wikipedia: z.optional(z.string().url())
     })
 });
 

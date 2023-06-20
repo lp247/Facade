@@ -1,5 +1,6 @@
 {
     "name": "Kotlin",
     "description": "Java Successor for Android",
-    "link": "https://kotlinlang.org"
+    "website": "https://kotlinlang.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/Kotlin_(programming_language)"
 }

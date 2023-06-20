@@ -1,5 +1,6 @@
 {
     "name": "Vercel",
     "description": "Vercel is the platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration.",
-    "link": "https://vercel.com"
+    "website": "https://vercel.com",
+    "wikipedia": "https://en.wikipedia.org/wiki/Vercel"
 }

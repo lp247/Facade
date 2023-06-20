@@ -1,5 +1,7 @@
 {
-    "name": "Tensorflow",
+    "name": "TensorFlow",
     "description": "Machine Learning Framework",
-    "link": "https://www.tensorflow.org"
+    "website": "https://www.tensorflow.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/TensorFlow",
+    "github": "https://github.com/tensorflow/tensorflow"
 }

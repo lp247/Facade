@@ -1,5 +1,7 @@
 {
     "name": "Python",
     "description": "The Python Programming Language",
-    "link": "https://www.python.org"
+    "website": "https://www.python.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+    "github": "https://github.com/python/cpython"
 }

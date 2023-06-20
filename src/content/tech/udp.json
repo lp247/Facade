@@ -1,5 +1,5 @@
 {
     "name": "UDP",
     "description": "User Datagram Protocol - one of the core communication protocols of the internet protocol suite",
-    "link": "https://en.wikipedia.org/wiki/User_Datagram_Protocol"
+    "wikipedia": "https://en.wikipedia.org/wiki/User_Datagram_Protocol"
 }

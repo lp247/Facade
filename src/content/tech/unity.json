@@ -1,5 +1,6 @@
 {
     "name": "Unity",
     "description": "Tools for Creating Games",
-    "link": "https://unity.com"
+    "website": "https://unity.com",
+    "wikipedia": "https://en.wikipedia.org/wiki/Unity_(game_engine)"
 }

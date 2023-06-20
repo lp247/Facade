@@ -204,21 +204,21 @@ declare module 'astro:content' {
   slug: "lotus";
   body: string;
   collection: "job";
-  data: InferEntrySchema<"job">
+  data: any
 } & { render(): Render[".mdx"] };
 "sap.mdx": {
 	id: "sap.mdx";
   slug: "sap";
   body: string;
   collection: "job";
-  data: InferEntrySchema<"job">
+  data: any
 } & { render(): Render[".mdx"] };
 "wearegroup.mdx": {
 	id: "wearegroup.mdx";
   slug: "wearegroup";
   body: string;
   collection: "job";
-  data: InferEntrySchema<"job">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 "project": {
@@ -227,42 +227,42 @@ declare module 'astro:content' {
   slug: "facade";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 "fpgaml.mdx": {
 	id: "fpgaml.mdx";
   slug: "fpgaml";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 "fpgaudp.mdx": {
 	id: "fpgaudp.mdx";
   slug: "fpgaudp";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 "opsmagna.mdx": {
 	id: "opsmagna.mdx";
   slug: "opsmagna";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 "twitchchatbot.mdx": {
 	id: "twitchchatbot.mdx";
   slug: "twitchchatbot";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 "unitygame.mdx": {
 	id: "unitygame.mdx";
   slug: "unitygame";
   body: string;
   collection: "project";
-  data: InferEntrySchema<"project">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 
@@ -273,132 +273,132 @@ declare module 'astro:content' {
 "astro": {
 	id: "astro";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "cpp": {
 	id: "cpp";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "csharp": {
 	id: "csharp";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "docker": {
 	id: "docker";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "fpga": {
 	id: "fpga";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "git": {
 	id: "git";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "hls": {
 	id: "hls";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "hls4ml": {
 	id: "hls4ml";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "javascript": {
 	id: "javascript";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "kotlin": {
 	id: "kotlin";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "php": {
 	id: "php";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "python": {
 	id: "python";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "pytorch": {
 	id: "pytorch";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "react": {
 	id: "react";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "reactnative": {
 	id: "reactnative";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "redux": {
 	id: "redux";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "rust": {
 	id: "rust";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "strapi": {
 	id: "strapi";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "swift": {
 	id: "swift";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "tailwindcss": {
 	id: "tailwindcss";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "tensorflow": {
 	id: "tensorflow";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "typescript": {
 	id: "typescript";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "udp": {
 	id: "udp";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "unity": {
 	id: "unity";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "vercel": {
 	id: "vercel";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 "vivado": {
 	id: "vivado";
   collection: "tech";
-  data: InferEntrySchema<"tech">
+  data: any
 };
 };
 
@@ -406,5 +406,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }

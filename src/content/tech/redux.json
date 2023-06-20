@@ -1,5 +1,7 @@
 {
     "name": "Redux",
     "description": "A Predictable State Container for JS Apps",
-    "link": "https://redux.js.org"
+    "website": "https://redux.js.org",
+    "wikipedia": "https://en.wikipedia.org/wiki/Redux_(JavaScript_library)",
+    "github": "https://github.com/reduxjs/redux"
 }

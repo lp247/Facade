@@ -1,5 +1,7 @@
 {
     "name": "React",
     "description": "The library for web and native user interfaces",
-    "link": "https://react.dev"
+    "website": "https://react.dev",
+    "wikipedia": "https://en.wikipedia.org/wiki/React_(software)",
+    "github": "https://github.com/facebook/react"
 }

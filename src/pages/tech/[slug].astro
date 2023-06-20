@@ -1,5 +1,7 @@
 ---
 import {getCollection, CollectionEntry} from 'astro:content';
+import FrameWithHeading from "@layouts/FrameWithHeading.astro";
+import ExternalLink from "@components/ExternalLink.astro";
 
 export async function getStaticPaths() {
     const entries = await getCollection("tech");
@@ -13,8 +15,14 @@ interface Props {
 }
 
 const {entry} = Astro.props as Props;
-const {name, description, link} = entry.data;
+const {name, description, website, github, wikipedia} = entry.data;
 ---
-<h1>{name}</h1>
-<p>{description}</p>
-<a href={link}>{link}</a>
+<FrameWithHeading heading={name}>
+    <p>{description}</p>
+    <hr />
+    <div class="flex flex-row gap-6">
+        {website && <ExternalLink href={website}>Project Website</ExternalLink>}
+        {github && <ExternalLink href={github}>Code on GitHub</ExternalLink>}
+        {wikipedia && <ExternalLink href={wikipedia}>Wikipedia Article</ExternalLink>}
+    </div>
+</FrameWithHeading>

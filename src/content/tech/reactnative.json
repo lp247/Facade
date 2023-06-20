@@ -1,5 +1,7 @@
 {
     "name": "React Native",
     "description": "Create native apps for Android, iOS, and more using React",
-    "link": "https://reactnative.dev"
+    "website": "https://reactnative.dev",
+    "wikipedia": "https://en.wikipedia.org/wiki/React_Native",
+    "github": "https://github.com/facebook/react-native"
 }

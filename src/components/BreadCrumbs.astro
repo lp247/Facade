@@ -22,13 +22,23 @@ const allProjectPaths = projects.reduce((accu, project) => {
     return accu;
 }, {} as PathList<ProjectPath, "/projects">);
 
-type Path = ProjectPath | "/" | "/projects" | "/about" | "/career";
+const techs = await getCollection("tech");
+
+type TechPath = `/tech/${CollectionEntry<"tech">["id"]}`;
+const allTechPaths = techs.reduce((accu, tech) => {
+    const path = "/tech/" + tech.id as `/tech/${typeof tech.id}`;
+    accu[path] = {text: tech.data.name, parent: "/"};
+    return accu;
+}, {} as PathList<TechPath, "/">);
+
+type Path = ProjectPath | TechPath | "/" | "/projects" | "/about" | "/career";
 const allPaths: PathList<Path, Path> = {
     "/": {text: "Root", parent: null},
     "/projects": {text: "Projects", parent: "/"},
     "/about": {text: "About Me", parent: "/"},
     "/career": {text: "Career", parent: "/"},
     ...allProjectPaths,
+    ...allTechPaths,
 };
 
 function normalize(path: Path): Path {

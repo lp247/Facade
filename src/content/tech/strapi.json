@@ -1,5 +1,6 @@
 {
     "name": "Strapi",
     "description": "Strapi is the leading open-source headless CMS. It’s 100% JavaScript and fully customizable",
-    "link": "https://strapi.io"
+    "website": "https://strapi.io",
+    "github": "https://github.com/strapi/strapi"
 }
