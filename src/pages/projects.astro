@@ -2,7 +2,6 @@
 import {getCollection} from "astro:content";
 import FrameWithHeading from "@layouts/FrameWithHeading.astro";
 import TechBadgeList from "@components/TechBadgeList.astro";
-import ProjectStatus from "@components/ProjectStatus.astro";
 
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);

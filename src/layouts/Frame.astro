@@ -1,13 +1,21 @@
 ---
 import "../main.css";
+import mainLinks from "@config/mainLinks";
 
 export interface FrameProps {
     title: string;
 }
 
+const externalLinks = [
+    {text: "LinkedIn", link: "https://www.linkedin.com/in/peter-lehnhardt/"},
+    {text: "Xing", link: "https://www.xing.com/profile/Peter_Lehnhardt2"},
+    {text: "GitHub", link: "https://github.com/tavnvs"},
+    {text: "Twitter", link: "https://twitter.com/tavnvs"},
+];
+const contentColumnStyles = "m-0 w-screen max-w-[800px] p-8 mx-auto";
+const footerTextStyles = "text-white text-xs font-bold";
 const {title} = Astro.props as FrameProps;
 ---
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -20,8 +28,28 @@ const {title} = Astro.props as FrameProps;
     <title>{title}</title>
 </head>
 
-<body class="m-0 min-h-screen w-screen max-w-[800px] p-8 mx-auto">
-    <slot></slot>
+<body>
+    <div class:list={[contentColumnStyles, "min-h-screen"]}>
+        <slot></slot>
+    </div>
+    <div class="bg-stone-900 w-full">
+        <div class:list={[contentColumnStyles, "flex flex-row justify-between"]}>
+            <div class="flex flex-col gap-3">
+                {mainLinks.map(link => <a class={footerTextStyles} href={link.link}>{link.text}</a>)}
+            </div>
+            <div class="flex flex-row gap-12">
+                <div class="flex flex-col gap-3">
+                    <span class={footerTextStyles}>Get in touch</span>
+                    <span class={footerTextStyles}>with me on</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    {externalLinks.map(link => (
+                    <a class:list={[footerTextStyles, "block"]} href={link.link}>{link.text}</a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
