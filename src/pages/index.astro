@@ -2,16 +2,14 @@
 import Frame from '@layouts/Frame.astro';
 import mainLinks from "@config/mainLinks";
 ---
-<Frame title="Peter Lehnhardt">
-    <div class="flex flex-col items-start justify-center gap-8 h-full">
-        <h1 class="text-slate-900 text-7xl font-extrabold tracking-tighter">Peter Lehnhardt</h1>
-        <p class="text-3xl leading-normal">I am a passionate software
-            developer
-            focusing
-            on Typescript and interested in tools and best practices around writing solid code. Welcome to my
-            page!</p>
-        <div class="flex flex-row items-center justify-start justify-self-start gap-8 mt-8">
-            {mainLinks.map(link => <a href={link.link} class="font-extrabold text-xl">{link.text}</a>)}
-        </div>
+<Frame title="Peter Lehnhardt" class="flex flex-col items-start justify-center gap-8">
+    <h1 class="text-slate-900 text-7xl font-extrabold tracking-tighter">Peter Lehnhardt</h1>
+    <p class="text-3xl leading-normal">I am a passionate software
+        developer
+        focusing
+        on Typescript and interested in tools and best practices around writing solid code. Welcome to my
+        page!</p>
+    <div class="flex flex-row items-center justify-start justify-self-start gap-8 mt-8">
+        {mainLinks.map(link => <a href={link.link} class="font-extrabold text-xl">{link.text}</a>)}
     </div>
 </Frame>
