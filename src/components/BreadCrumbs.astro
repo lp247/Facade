@@ -1,5 +1,6 @@
 ---
 import {getCollection, CollectionEntry} from "astro:content";
+import mainLinks from "@config/mainLinks";
 
 type BreadCrumb = {
     text: string;
@@ -13,30 +14,34 @@ type PathData<Parent> = {
 
 export type PathList<Path extends string, Parent extends String> = Record<Path, PathData<Parent>>
 
-const projects = await getCollection("project");
-
 type ProjectPath = `/project/${CollectionEntry<"project">["slug"]}`;
+const projects = await getCollection("project");
 const allProjectPaths = projects.reduce((accu, project) => {
     const path = "/project/" + project.slug as `/project/${typeof project.slug}`;
     accu[path] = {text: project.data.name, parent: "/projects"};
     return accu;
 }, {} as PathList<ProjectPath, "/projects">);
 
-const techs = await getCollection("tech");
-
 type TechPath = `/tech/${CollectionEntry<"tech">["id"]}`;
+const techs = await getCollection("tech");
 const allTechPaths = techs.reduce((accu, tech) => {
     const path = "/tech/" + tech.id as `/tech/${typeof tech.id}`;
-    accu[path] = {text: tech.data.name, parent: "/"};
+    accu[path] = {text: tech.data.name, parent: "/techs"};
     return accu;
-}, {} as PathList<TechPath, "/">);
+}, {} as PathList<TechPath, "/techs">);
 
-type Path = ProjectPath | TechPath | "/" | "/projects" | "/about" | "/career";
+type MainLinks = typeof mainLinks;
+type MainPath = MainLinks[number]["link"];
+const mainLinkPaths = mainLinks.reduce((accu, link) => {
+    const path = link.link;
+    accu[path] = {text: link.text, parent: "/"};
+    return accu;
+}, {} as PathList<MainPath, "/">);
+
+type Path = ProjectPath | TechPath | MainPath | "/";
 const allPaths: PathList<Path, Path> = {
     "/": {text: "Root", parent: null},
-    "/projects": {text: "Projects", parent: "/"},
-    "/about": {text: "About Me", parent: "/"},
-    "/career": {text: "Career", parent: "/"},
+    ...mainLinkPaths,
     ...allProjectPaths,
     ...allTechPaths,
 };
