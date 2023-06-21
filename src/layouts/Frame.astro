@@ -1,18 +1,13 @@
 ---
 import "../main.css";
 import mainLinks from "@config/mainLinks";
+import externalLinks from "@config/externalLinks";
 
 export interface FrameProps {
     title: string;
     class?: string;
 }
 
-const externalLinks = [
-    {text: "LinkedIn", link: "https://www.linkedin.com/in/peter-lehnhardt/"},
-    {text: "Xing", link: "https://www.xing.com/profile/Peter_Lehnhardt2"},
-    {text: "GitHub", link: "https://github.com/tavnvs"},
-    {text: "Twitter", link: "https://twitter.com/tavnvs"},
-];
 const contentColumnStyles = "m-0 w-screen max-w-[800px] p-8 mx-auto";
 const footerTextStyles = "text-white text-xs font-bold";
 const {title, class: className} = Astro.props as FrameProps;
