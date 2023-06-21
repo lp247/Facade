@@ -14,12 +14,34 @@ interface Props {
     entry: CollectionEntry<"tech">;
 }
 
+const metaTextStyles = "text-xs font-bold";
+
 const {entry} = Astro.props as Props;
 const {name, description, website, github, wikipedia} = entry.data;
+
+const projects = await getCollection("project");
+const jobs = await getCollection("job");
+const relatedProjects = projects.filter(project => project.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
+const relatedJobs = jobs.filter(job => job.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
 ---
 <FrameWithHeading heading={name}>
     <p>{description}</p>
-    <hr />
+    <hr class="mt-10 mb-4" />
+    <div class="flex flex-col gap-4">
+        {relatedProjects.length > 0 && (
+            <div class="flex flex-row gap-4">
+                <span class={metaTextStyles}>Used in Projects:</span>
+                {relatedProjects.map(project => <a class={metaTextStyles} href={"/project/" + project.slug}>{project.data.name}</a>)}
+            </div>
+        )}
+        {relatedJobs.length > 0 && (
+            <div class="flex flex-row gap-4">
+                <span class={metaTextStyles}>Used at Work:</span>
+                {relatedJobs.map(job => <a class={metaTextStyles} href="/career">{job.data.company}</a>)}
+            </div>
+        )}
+    </div>
+    <hr class="my-4" />
     <div class="flex flex-row gap-6">
         {website && <ExternalLink href={website}>Project Website</ExternalLink>}
         {github && <ExternalLink href={github}>Code on GitHub</ExternalLink>}

@@ -28,7 +28,7 @@ const {github, techs, year, name, summary, status} = entry.data;
         <ProjectStatus status={status} />
     </div>
     <TechBadgeList techs={techs.map(tech => tech.id)} />
-    {github && <ExternalLink href={github}>Code on GitHub</ExternalLink>}
+    {github && <ExternalLink class="mt-4" href={github}>Code on GitHub</ExternalLink>}
     <hr class="mt-4 mb-4" />
     <Content />
 </FrameWithHeading>
