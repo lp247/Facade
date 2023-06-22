@@ -7,11 +7,11 @@ import externalLinks from "@config/externalLinks";
     <h1 class="text-slate-900 text-7xl font-extrabold tracking-tighter">Peter Lehnhardt</h1>
     <p class="text-3xl leading-normal">I am a passionate software developer focusing on Typescript and interested in tools and best practices around writing solid code. Welcome to my page!</p>
     <div>
-        <div class="flex flex-row items-center justify-start justify-self-start gap-8 mt-8">
-            {mainLinks.map(link => <a href={link.link} class="font-extrabold text-xl">{link.text}</a>)}
+        <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
+            {mainLinks.map(link => <a href={link.link} class="font-extrabold text-xl whitespace-nowrap">{link.text}</a>)}
         </div>
-        <div class="flex flex-row items-center justify-start justify-self-start gap-8 mt-8">
-            {externalLinks.map(link => <a href={link.link} class="font-extrabold text-xl">{link.text}</a>)}
+        <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
+            {externalLinks.map(link => <a href={link.link} class="font-extrabold text-xl whitespace-nowrap">{link.text}</a>)}
         </div>
     </div>
 </Frame>
