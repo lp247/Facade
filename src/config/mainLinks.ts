@@ -1,7 +1,7 @@
 const mainLinks = [
     {text: "About Me", link: "/about"},
     {text: "Projects", link: "/projects"},
-    {text: "Career", link: "/career"},
+    {text: "Work", link: "/work"},
     {text: "Technologies", link: "/techs"}
 ] as const;
 
