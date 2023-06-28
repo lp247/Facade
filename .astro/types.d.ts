@@ -236,9 +236,9 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
-"fpgaudp.mdx": {
-	id: "fpgaudp.mdx";
-  slug: "fpgaudp";
+"fpganetworking.mdx": {
+	id: "fpganetworking.mdx";
+  slug: "fpganetworking";
   body: string;
   collection: "project";
   data: InferEntrySchema<"project">
