@@ -1,6 +1,6 @@
 ---
 name: UDP on an FPGA
-summary: "[Study Project] Implementation of the UDP Network Protocol on an FPGA chip"
+headline: "[Study Project] Implementation of the UDP Network Protocol on an FPGA chip"
 techs:
 - fpga
 - hls
@@ -10,9 +10,5 @@ techs:
 github: https://github.com/tavnvs/FPGA-Networking
 year: 2020
 status: Finished
+summary: My first study project where I worked on FPGAs. FPGAs are heavily used devices in particle physics at particle accelerators as they can handle an absurdly large amount of data in a very short time. I already got interested in working with FPGAs at the end of my bachelor's studies and I started doing project work on it a little later in my master's studies. The project was not really physics-related but it would serve as an introduction into more physics-related projects later on. The development was about implementing a simple UDP echo server on a Xilinx FPGA (Xilinx has been acquired by AMD lately). The project was very insightful into the workings of networks, packets and communication protocols as I had to implement most logic by myself. The only thing available on the FPGA development board was a PHY chip attached to an ethernet cable port. And this PHY chip would only accept pairs of bits to be sent over the ethernet cable. This means I had to implement logic to wrap/unwrap ethernet frames, IP packets, and UDP packets, calculate all the checksums for the UDP and IP packets, calculate the running CRC32 ethernet frame checksum and connect all that logic to the PHY chip. Implementing that on an FPGA was very very low-level and it was a lot of hard work, but in the end, I learned a lot and it worked well. I could connect my development board to my computer, send some UDP packets and I would receive them back. I also thought about implementing TCP on this board, but this would have been way harder as state, e.g. stored connection data, is involved there as well.
 ---
-*You are probably asking yourself what an FPGA is; just click the FPGA tag above to read more!*
-
-FPGAs are widely used in particle physics - my field of study - at particle accelerators due to their immense performance in handling data. As I got more and more interested in programming and computer science while doing my masters studies, I found more interest in FPGAs as they are a relatively exotic technology promising extraordinary performance and performance per watt. This led me to work on it and implementation of some basic network logic was the first project I did.
-
-This project implements the UDP protocol on an FPGA chip. In the end I could connect my PC via network cable to my FPGA development board and send UDP packets to the board which would then be echoed to my PC. The implementation involved from top to bottom UDP packet de-/serialization, IP packet de-/serialization, Ethernet frame de-/serialization and communication with an ethernet PHY chip to receive and send data. All this work was done via Vivado HLS, a tool where you can write C and C++ code to generate your hardware logic.

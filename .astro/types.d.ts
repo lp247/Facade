@@ -375,6 +375,11 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+"twitchtv": {
+	id: "twitchtv";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "typescript": {
 	id: "typescript";
   collection: "tech";

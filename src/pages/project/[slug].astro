@@ -18,9 +18,9 @@ interface Props {
 
 const {entry} = Astro.props as Props;
 const {Content} = await entry.render();
-const {github, techs, year, name, summary, status} = entry.data;
+const {github, techs, year, name, summary, headline, status} = entry.data;
 ---
-<FrameWithHeading heading={name} subheading={summary}>
+<FrameWithHeading heading={name} subheading={headline}>
     <hr class="mb-4 mt-4" />
     <div class="flex row mb-4 gap-4 items-center">
         <span>{year}</span>
@@ -30,5 +30,6 @@ const {github, techs, year, name, summary, status} = entry.data;
     <TechBadgeList techs={techs.map(tech => tech.id)} />
     {github && <ExternalLink class="mt-4" href={github}>Code on GitHub</ExternalLink>}
     <hr class="mt-4 mb-4" />
+    {summary}
     <Content />
 </FrameWithHeading>

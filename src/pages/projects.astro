@@ -13,7 +13,7 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
             return (
                 <div class="flex flex-col gap-2 items-start">
                     <a href={href}><h2 class="m-0">{project.data.name}</h2></a>
-                    <a href={href}><p class="m-0">{project.data.summary}</p></a>
+                    <a href={href}><p class="m-0">{project.data.headline}</p></a>
                     <TechBadgeList techs={project.data.techs.map(tech => tech.id)} />
                 </div>
             );

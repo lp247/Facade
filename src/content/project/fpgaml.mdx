@@ -1,6 +1,6 @@
 ---
 name: ML@FPGA
-summary: "[Study Project] Machine Learning on an FPGA"
+headline: "[Study Project] Machine Learning on an FPGA"
 techs:
 - fpga
 - python
@@ -10,5 +10,5 @@ techs:
 github: https://github.com/tavnvs/FPGAML-Tutorial
 year: 2022
 status: In Progress
+summary: My master's thesis where I am working on implementing neural network inference on FPGAs. FPGAs are already considered as a promising candidate for fast and cost-efficient inference and this work explores the feasibility and performance of that. For that, I am currently exploring a library developed by people at the CERN particle physics research center. With that, you can in essence deploy simple pre-trained TensorFlow models onto special Xilinx SoC FPGAs which can then load your data and do inferences based on your defined model. The advantages of working with FPGAs would be, as previously said, very fast inference with very low power consumption. E.g. my development board could - if the model would not be too complex - do one inference in every clock cycle. And even with a rather slow clock of 100 Mhz, you could achieve 100 million inferences per second. And that while the power consumption of such a board is said to be somewhere below 10 Watts. That means in comparison to CPUs and GPUs FPGAs can have orders of magnitude better performance per watt.
 ---
-I am currently exploring possibilities to deploy machine learning models onto an FPGA for faster inference.
