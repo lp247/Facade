@@ -1,0 +1,6 @@
+{
+    "name": "Vitest",
+    "description": "Next generation testing framework powered by Vite",
+    "website": "https://vitest.dev/",
+    "github": "https://github.com/vitest-dev/vitest"
+}

@@ -8,6 +8,7 @@ const project = defineCollection({
         summary: z.string(),
         techs: z.array(reference("tech")),
         github: z.optional(z.string().url()),
+        webpage: z.optional(z.string().url()),
         year: z.number(),
         status: z.enum(["In Progress", "Finished", "On Hold", "Planned"])
     })

@@ -243,6 +243,13 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
+"gameoflife.mdx": {
+	id: "gameoflife.mdx";
+  slug: "gameoflife";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
 "opsmagna.mdx": {
 	id: "opsmagna.mdx";
   slug: "opsmagna";
@@ -285,8 +292,18 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+"css": {
+	id: "css";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "docker": {
 	id: "docker";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"eslint": {
+	id: "eslint";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
@@ -310,6 +327,11 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+"html": {
+	id: "html";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "javascript": {
 	id: "javascript";
   collection: "tech";
@@ -322,6 +344,11 @@ declare module 'astro:content' {
 };
 "php": {
 	id: "php";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"prettier": {
+	id: "prettier";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
@@ -397,6 +424,16 @@ declare module 'astro:content' {
 };
 "vercel": {
 	id: "vercel";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"vite": {
+	id: "vite";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"vitest": {
+	id: "vitest";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };

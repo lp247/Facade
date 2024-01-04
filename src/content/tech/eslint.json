@@ -1,0 +1,6 @@
+{
+    "name": "ESLint",
+    "description": "Find and fix problmes in your JavaScript code",
+    "website": "https://eslint.org/",
+    "github": "https://github.com/eslint/eslint"
+}
