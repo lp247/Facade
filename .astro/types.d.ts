@@ -264,13 +264,6 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
-"unitygame.mdx": {
-	id: "unitygame.mdx";
-  slug: "unitygame";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
 };
 
 	};
