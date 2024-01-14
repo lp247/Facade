@@ -24,7 +24,7 @@ const {title, class: className} = Astro.props as FrameProps;
     <title>{title}</title>
 </head>
 
-<body>
+<body class="bg-gradient-to-r from-slate-300 to-stone-200">
     <div class:list={[contentColumnStyles, "min-h-screen", className]}>
         <slot></slot>
     </div>
