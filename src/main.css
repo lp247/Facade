@@ -22,6 +22,6 @@
         @apply list-disc;
     }
     a {
-        @apply text-teal-600 font-bold;
+        @apply text-yellow-600 font-bold;
     }
 }
