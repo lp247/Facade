@@ -1,9 +1,9 @@
 ---
-import Frame from '@layouts/Frame.astro';
+import Standard from '@layouts/Standard.astro';
 import mainLinks from "@config/mainLinks";
 import externalLinks from "@config/externalLinks";
 ---
-<Frame title="Peter Lehnhardt" class="flex flex-col items-start justify-center gap-8">
+<Standard title="Peter Lehnhardt" class="flex flex-col items-start justify-center gap-8">
     <h1 class="text-slate-900 text-7xl font-extrabold tracking-tighter">Peter Lehnhardt</h1>
     <p class="text-3xl leading-normal">I am a passionate software developer focusing on Typescript and interested in tools and best practices around writing solid code. Welcome to my page!</p>
     <div>
@@ -14,4 +14,4 @@ import externalLinks from "@config/externalLinks";
             {externalLinks.map(link => <a href={link.link} class="font-extrabold text-xl whitespace-nowrap">{link.text}</a>)}
         </div>
     </div>
-</Frame>
+</Standard>

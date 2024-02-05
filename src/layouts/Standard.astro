@@ -1,0 +1,55 @@
+---
+import "../main.css";
+import mainLinks from "@config/mainLinks";
+import externalLinks from "@config/externalLinks";
+import Root from "./Root.astro";
+import BreadCrumbs from "@components/BreadCrumbs.astro";
+
+export interface FrameProps {
+    class?: string;
+    heading: string;
+    subheading?: string | undefined;
+    hideHeaders?: boolean | undefined;
+}
+
+const contentColumnStyles = "m-0 w-screen max-w-[800px] p-7 mx-auto";
+const footerTextStyles = "text-white text-xs font-bold";
+const {class: className, heading, subheading, hideHeaders} = Astro.props as FrameProps;
+---
+
+<Root title={heading}>
+    <div class:list={[contentColumnStyles, "min-h-screen", className]}>
+        <BreadCrumbs />
+        {!hideHeaders && <h1>{heading}</h1>}
+        {!hideHeaders && subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
+        <slot />
+    </div>
+    <div class="bg-stone-900 w-full">
+        <div class:list={[contentColumnStyles, "flex flex-row justify-between"]}>
+            <div class="flex flex-col gap-3">
+                {
+                    mainLinks.map((link) => (
+                        <a class={footerTextStyles} href={link.link}>
+                            {link.text}
+                        </a>
+                    ))
+                }
+            </div>
+            <div class="flex flex-row gap-12">
+                <div class="flex flex-col gap-3">
+                    <span class={footerTextStyles}>Get in touch</span>
+                    <span class={footerTextStyles}>with me on</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    {
+                        externalLinks.map((link) => (
+                            <a class:list={[footerTextStyles, "block"]} href={link.link}>
+                                {link.text}
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</Root>

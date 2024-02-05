@@ -1,6 +1,6 @@
 ---
 import {getCollection, CollectionEntry} from 'astro:content';
-import FrameWithHeading from "@layouts/FrameWithHeading.astro";
+import Standard from "@layouts/Standard.astro";
 import ExternalLink from "@components/ExternalLink.astro";
 
 export async function getStaticPaths() {
@@ -24,7 +24,7 @@ const jobs = await getCollection("job");
 const relatedProjects = projects.filter(project => project.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
 const relatedJobs = jobs.filter(job => job.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
 ---
-<FrameWithHeading heading={name}>
+<Standard heading={name}>
     <p>{description}</p>
     <hr class="mt-10 mb-4" />
     <div class="flex flex-col gap-4">
@@ -47,4 +47,4 @@ const relatedJobs = jobs.filter(job => job.data.techs.findIndex(tech => tech.id 
         {github && <ExternalLink href={github}>Code on GitHub</ExternalLink>}
         {wikipedia && <ExternalLink href={wikipedia}>Wikipedia Article</ExternalLink>}
     </div>
-</FrameWithHeading>
+</Standard>

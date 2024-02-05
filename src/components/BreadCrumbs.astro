@@ -47,7 +47,7 @@ const allPaths: PathList<Path, Path> = {
 };
 
 function normalize(path: Path): Path {
-    if (path.endsWith("/")) {
+    if (path.endsWith("/") && path !== "/") {
         path = path.slice(0, -1) as Path;
     }
     return path;
