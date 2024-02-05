@@ -269,7 +269,24 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"tech": {
+		"socials": {
+"github": {
+	id: "github";
+  collection: "socials";
+  data: InferEntrySchema<"socials">
+};
+"linkedin": {
+	id: "linkedin";
+  collection: "socials";
+  data: InferEntrySchema<"socials">
+};
+"xing": {
+	id: "xing";
+  collection: "socials";
+  data: InferEntrySchema<"socials">
+};
+};
+"tech": {
 "astro": {
 	id: "astro";
   collection: "tech";

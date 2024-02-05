@@ -37,4 +37,16 @@ const job = defineCollection({
     })
 });
 
-export const collections = {project, tech, job};
+const socials = defineCollection({
+    type: "data",
+    schema: z.object({
+        name: z.string(),
+        link: z.string().url(),
+        svgLogo: z.object({
+            d: z.string(),
+            viewBox: z.string(),
+        }),
+    }),
+});
+
+export const collections = {project, tech, job, socials};
