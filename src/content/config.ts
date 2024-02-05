@@ -10,8 +10,8 @@ const project = defineCollection({
         github: z.optional(z.string().url()),
         webpage: z.optional(z.string().url()),
         year: z.number(),
-        status: z.enum(["In Progress", "Finished", "On Hold", "Planned"])
-    })
+        status: z.enum(["In Progress", "Finished", "On Hold", "Planned"]),
+    }),
 });
 
 const tech = defineCollection({
@@ -21,8 +21,8 @@ const tech = defineCollection({
         description: z.string(),
         website: z.optional(z.string().url()),
         github: z.optional(z.string().url()),
-        wikipedia: z.optional(z.string().url())
-    })
+        wikipedia: z.optional(z.string().url()),
+    }),
 });
 
 const job = defineCollection({
@@ -33,8 +33,8 @@ const job = defineCollection({
         jobDescription: z.string(),
         startDate: z.date(),
         endDate: z.nullable(z.date()),
-        techs: z.array(reference("tech"))
-    })
+        techs: z.array(reference("tech")),
+    }),
 });
 
 const socials = defineCollection({
