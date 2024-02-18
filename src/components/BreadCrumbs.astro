@@ -5,19 +5,19 @@ import mainLinks from "@config/mainLinks";
 type BreadCrumb = {
     text: string;
     link?: string;
-}
+};
 
 type PathData<Parent> = {
     text: string;
     parent: Parent | null;
-}
+};
 
-export type PathList<Path extends string, Parent extends String> = Record<Path, PathData<Parent>>
+export type PathList<Path extends string, Parent extends String> = Record<Path, PathData<Parent>>;
 
 type ProjectPath = `/project/${CollectionEntry<"project">["slug"]}`;
 const projects = await getCollection("project");
 const allProjectPaths = projects.reduce((accu, project) => {
-    const path = "/project/" + project.slug as `/project/${typeof project.slug}`;
+    const path = ("/project/" + project.slug) as `/project/${typeof project.slug}`;
     accu[path] = {text: project.data.name, parent: "/projects"};
     return accu;
 }, {} as PathList<ProjectPath, "/projects">);
@@ -25,7 +25,7 @@ const allProjectPaths = projects.reduce((accu, project) => {
 type TechPath = `/tech/${CollectionEntry<"tech">["id"]}`;
 const techs = await getCollection("tech");
 const allTechPaths = techs.reduce((accu, tech) => {
-    const path = "/tech/" + tech.id as `/tech/${typeof tech.id}`;
+    const path = ("/tech/" + tech.id) as `/tech/${typeof tech.id}`;
     accu[path] = {text: tech.data.name, parent: "/techs"};
     return accu;
 }, {} as PathList<TechPath, "/techs">);
@@ -65,12 +65,33 @@ function getBreadCrumbs(path: Path): BreadCrumb[] {
 
 const currentPath = Astro.url.pathname as Path;
 ---
+
 <div class="flex flex-row gap-4 items-center">
-    {getBreadCrumbs(currentPath).flatMap(node => [
-        <svg class="h-[0.6rem]" viewBox="0 0 100 100">
-            <line class="stroke-foreground stroke-[16]" stroke-linecap="square" x1="32" y1="12" x2="70" y2="50" />
-            <line class="stroke-foreground stroke-[16]" stroke-linecap="square" x1="32" y1="88" x2="70" y2="50" />
-        </svg>,
-        <a class="text-xs font-bold font-sans" href={node.link}>{node.text}</a>
-    ]).slice(1)}
+    {
+        getBreadCrumbs(currentPath)
+            .flatMap((node) => [
+                <svg class="h-[0.6rem]" viewBox="0 0 100 100">
+                    <line
+                        class="stroke-foreground stroke-[16]"
+                        stroke-linecap="square"
+                        x1="32"
+                        y1="12"
+                        x2="70"
+                        y2="50"
+                    />
+                    <line
+                        class="stroke-foreground stroke-[16]"
+                        stroke-linecap="square"
+                        x1="32"
+                        y1="88"
+                        x2="70"
+                        y2="50"
+                    />
+                </svg>,
+                <a class="text-xs font-bold font-sans" href={node.link}>
+                    {node.text}
+                </a>,
+            ])
+            .slice(1)
+    }
 </div>

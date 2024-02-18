@@ -1,12 +1,13 @@
 ---
-import {getCollection, CollectionEntry} from 'astro:content';
+import {getCollection, CollectionEntry} from "astro:content";
 import Standard from "@layouts/Standard.astro";
 import ExternalLink from "@components/ExternalLink.astro";
 
 export async function getStaticPaths() {
     const entries = await getCollection("tech");
-    return entries.map(entry => ({
-        params: { slug: entry.id }, props: { entry },
+    return entries.map((entry) => ({
+        params: {slug: entry.id},
+        props: {entry},
     }));
 }
 
@@ -21,25 +22,38 @@ const {name, description, website, github, wikipedia} = entry.data;
 
 const projects = await getCollection("project");
 const jobs = await getCollection("job");
-const relatedProjects = projects.filter(project => project.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
-const relatedJobs = jobs.filter(job => job.data.techs.findIndex(tech => tech.id === entry.id) >= 0);
+const relatedProjects = projects.filter((project) => project.data.techs.findIndex((tech) => tech.id === entry.id) >= 0);
+const relatedJobs = jobs.filter((job) => job.data.techs.findIndex((tech) => tech.id === entry.id) >= 0);
 ---
+
 <Standard heading={name}>
     <p>{description}</p>
     <hr class="mt-10 mb-4" />
     <div class="flex flex-col gap-4">
-        {relatedProjects.length > 0 && (
-            <div class="flex flex-row gap-4">
-                <span class={metaTextStyles}>Used in Projects:</span>
-                {relatedProjects.map(project => <a class={metaTextStyles} href={"/project/" + project.slug}>{project.data.name}</a>)}
-            </div>
-        )}
-        {relatedJobs.length > 0 && (
-            <div class="flex flex-row gap-4">
-                <span class={metaTextStyles}>Used at Work:</span>
-                {relatedJobs.map(job => <a class={metaTextStyles} href="/career">{job.data.company}</a>)}
-            </div>
-        )}
+        {
+            relatedProjects.length > 0 && (
+                <div class="flex flex-row gap-4">
+                    <span class={metaTextStyles}>Used in Projects:</span>
+                    {relatedProjects.map((project) => (
+                        <a class={metaTextStyles} href={"/project/" + project.slug}>
+                            {project.data.name}
+                        </a>
+                    ))}
+                </div>
+            )
+        }
+        {
+            relatedJobs.length > 0 && (
+                <div class="flex flex-row gap-4">
+                    <span class={metaTextStyles}>Used at Work:</span>
+                    {relatedJobs.map((job) => (
+                        <a class={metaTextStyles} href="/career">
+                            {job.data.company}
+                        </a>
+                    ))}
+                </div>
+            )
+        }
     </div>
     <hr class="my-4" />
     <div class="flex flex-row gap-6">

@@ -4,9 +4,10 @@ import {getCollection} from "astro:content";
 
 const projects = await getCollection("project");
 const jobs = await getCollection("job");
-const projectTechIds = projects.flatMap(project => project.data.techs.map(tech => tech.id));
-const jobTechIds = jobs.flatMap(job => job.data.techs.map(tech => tech.id));
+const projectTechIds = projects.flatMap((project) => project.data.techs.map((tech) => tech.id));
+const jobTechIds = jobs.flatMap((job) => job.data.techs.map((tech) => tech.id));
 // Remove all the duplicates with the Set data structure
 const allUniqueTechIds = Array.from(new Set([...projectTechIds, ...jobTechIds]));
 ---
+
 <TechBadgeList techs={allUniqueTechIds} />

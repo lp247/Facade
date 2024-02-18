@@ -8,30 +8,41 @@ import ProjectStatus from "@components/ProjectStatus.astro";
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 ---
+
 <Standard heading="Projects">
     <div class="flex flex-col gap-12 mt-12">
-        {sortedProjects.map((project) => {
-            const {year, techs, status, github, webpage, name, headline} = project.data;
-            return (
-                <div class="flex flex-col bg-slate-100 rounded-xl items-stretch overflow-hidden shadow-sm">
-                    <div class="p-10 bg-yellow-400 bg-gradient-to-r from-cyan-950 to-stone-800">
-                        <h2 class="m-0 text-white">{name}</h2>
-                        <p class="m-0 text-white">{headline}</p>
-                    </div>
-                    <div class="p-10">
-                        <div class="flex row mb-4 gap-4 items-center">
-                            <span>{year}</span>
-                            <span>|</span>
-                            <ProjectStatus status={status} />
+        {
+            sortedProjects.map((project) => {
+                const {year, techs, status, github, webpage, name, headline} = project.data;
+                return (
+                    <div class="flex flex-col bg-slate-100 rounded-xl items-stretch overflow-hidden shadow-sm">
+                        <div class="p-10 bg-yellow-400 bg-gradient-to-r from-cyan-950 to-stone-800">
+                            <h2 class="m-0 text-white">{name}</h2>
+                            <p class="m-0 text-white">{headline}</p>
                         </div>
-                        <TechBadgeList techs={techs.map(tech => tech.id)} />
-                        <div class="flex row mt-4 gap-4 items-center">
-                            {github && <ExternalLink class="mt-4" href={github}>Code on GitHub</ExternalLink>}
-                            {webpage && <ExternalLink class="mt-4" href={webpage}>Link to page</ExternalLink>}
+                        <div class="p-10">
+                            <div class="flex row mb-4 gap-4 items-center">
+                                <span>{year}</span>
+                                <span>|</span>
+                                <ProjectStatus status={status} />
+                            </div>
+                            <TechBadgeList techs={techs.map((tech) => tech.id)} />
+                            <div class="flex row mt-4 gap-4 items-center">
+                                {github && (
+                                    <ExternalLink class="mt-4" href={github}>
+                                        Code on GitHub
+                                    </ExternalLink>
+                                )}
+                                {webpage && (
+                                    <ExternalLink class="mt-4" href={webpage}>
+                                        Link to page
+                                    </ExternalLink>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            );
-        })}
+                );
+            })
+        }
     </div>
 </Standard>

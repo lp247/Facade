@@ -38,15 +38,21 @@ const socials = await getCollection("socials");
                     ))
                 }
             </div>
-                <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
-                    {socials.map(social => (
+            <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
+                {
+                    socials.map((social) => (
                         <a href={social.data.link}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox={social.data.svgLogo.viewBox} width="32" height="32">
-                                <path class="fill-foreground" d={social.data.svgLogo.d}></path>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox={social.data.svgLogo.viewBox}
+                                width="32"
+                                height="32"
+                            >
+                                <path class="fill-foreground" d={social.data.svgLogo.d} />
                             </svg>
                         </a>
-                    ))}
-                </div>
+                    ))
+                }
             </div>
         </div>
     </div>

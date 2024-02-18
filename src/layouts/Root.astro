@@ -8,20 +8,19 @@ export interface FrameProps {
 
 const {title, class: className} = Astro.props as FrameProps;
 ---
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-</head>
-
-<body class:list={["bg-white", className]}>
-    <slot></slot>
-</body>
-
+    <body class:list={["bg-white", className]}>
+        <slot />
+    </body>
 </html>
