@@ -7,7 +7,7 @@ interface Props {
 const {href, class: className} = Astro.props as Props;
 ---
 
-<a class:list={["inline-block font-bold text-xs flex row items-center gap-1 text-slate-900", className]} href={href}>
+<a class:list={["inline-block font-bold text-xs flex row items-center gap-1 text-slate-900 font-sans", className]} href={href}>
     <slot />
     <svg class="h-2.5" viewBox="0 0 100 100">
         <line stroke-width="16" stroke-linecap="square" x1="0" y1="50" x2="80" y2="50" stroke="black"></line>

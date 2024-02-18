@@ -19,7 +19,9 @@
         -webkit-font-smoothing: antialiased;
     }
     p,
-    a {
+    a,
+    span,
+    li {
         @apply font-serif text-xl font-normal leading-8 tracking-[-0.06px];
     }
     p {

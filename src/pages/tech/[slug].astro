@@ -15,7 +15,7 @@ interface Props {
     entry: CollectionEntry<"tech">;
 }
 
-const metaTextStyles = "text-xs font-bold";
+const metaTextStyles = "text-xs font-bold font-sans";
 
 const {entry} = Astro.props as Props;
 const {name, description, website, github, wikipedia} = entry.data;
@@ -57,8 +57,8 @@ const relatedJobs = jobs.filter((job) => job.data.techs.findIndex((tech) => tech
     </div>
     <hr class="my-4" />
     <div class="flex flex-row gap-6">
-        {website && <ExternalLink href={website}>Project Website</ExternalLink>}
-        {github && <ExternalLink href={github}>Code on GitHub</ExternalLink>}
-        {wikipedia && <ExternalLink href={wikipedia}>Wikipedia Article</ExternalLink>}
+        {website && <ExternalLink class="font-sans" href={website}>Project Website</ExternalLink>}
+        {github && <ExternalLink class="font-sans" href={github}>Code on GitHub</ExternalLink>}
+        {wikipedia && <ExternalLink class="font-sans" href={wikipedia}>Wikipedia Article</ExternalLink>}
     </div>
 </Standard>
