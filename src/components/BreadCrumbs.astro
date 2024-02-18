@@ -67,10 +67,10 @@ const currentPath = Astro.url.pathname as Path;
 ---
 <div class="flex flex-row gap-4 items-center">
     {getBreadCrumbs(currentPath).flatMap(node => [
-        <svg class="h-2" viewBox="0 0 100 100">
-            <line stroke-width="16" stroke-linecap="square" x1="31" y1="12" x2="69" y2="50" stroke="black" />
-            <line stroke-width="16" stroke-linecap="square" x1="31" y1="88" x2="69" y2="50" stroke="black" />
+        <svg class="h-[0.6rem]" viewBox="0 0 100 100">
+            <line class="stroke-foreground stroke-[16]" stroke-linecap="square" x1="32" y1="12" x2="70" y2="50" />
+            <line class="stroke-foreground stroke-[16]" stroke-linecap="square" x1="32" y1="88" x2="70" y2="50" />
         </svg>,
-        <a class="text-xs font-bold text-slate-900" href={node.link}>{node.text}</a>
+        <a class="text-xs font-bold font-sans" href={node.link}>{node.text}</a>
     ]).slice(1)}
 </div>

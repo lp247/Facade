@@ -5,11 +5,17 @@ import type {MDXLayoutProps} from "astro";
 interface MDXFrontmatter {
     heading: string;
     subheading?: string;
+    date: string;
 }
 
 const {frontmatter} = Astro.props as MDXLayoutProps<MDXFrontmatter>;
 ---
 
 <Standard heading={frontmatter.heading} subheading={frontmatter.subheading}>
+    <hr />
+    <div class="flex flex-row justify-end">
+        <p class="font-sans text-base font-bold mr-6">{new Date(frontmatter.date).toISOString().substring(0, 10)}</p>
+    </div>
+    <hr />
     <slot />
 </Standard>

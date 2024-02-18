@@ -1,9 +1,10 @@
 ---
 import "../main.css";
 import mainLinks from "@config/mainLinks";
-import externalLinks from "@config/externalLinks";
 import Root from "./Root.astro";
 import BreadCrumbs from "@components/BreadCrumbs.astro";
+import {getCollection} from "astro:content";
+import TitleBar from "@components/TitleBar.astro";
 
 export interface FrameProps {
     class?: string;
@@ -13,41 +14,38 @@ export interface FrameProps {
 }
 
 const contentColumnStyles = "m-0 w-screen max-w-[800px] p-7 mx-auto";
-const footerTextStyles = "text-white text-xs font-bold";
 const {class: className, heading, subheading, hideHeaders} = Astro.props as FrameProps;
+const socials = await getCollection("socials");
 ---
 
 <Root title={heading}>
+    <TitleBar color="foreground" />
     <div class:list={[contentColumnStyles, "min-h-screen", className]}>
         <BreadCrumbs />
         {!hideHeaders && <h1>{heading}</h1>}
         {!hideHeaders && subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
         <slot />
     </div>
-    <div class="bg-stone-900 w-full">
+    <hr class="border-none bg-gradient-to-r from-transparent from-2% via-black to-transparent to-98% h-px" />
+    <div class="w-full">
         <div class:list={[contentColumnStyles, "flex flex-row justify-between"]}>
             <div class="flex flex-col gap-3">
                 {
                     mainLinks.map((link) => (
-                        <a class={footerTextStyles} href={link.link}>
+                        <a class="text-foreground text-xs font-bold font-sans" href={link.link}>
                             {link.text}
                         </a>
                     ))
                 }
             </div>
-            <div class="flex flex-row gap-12">
-                <div class="flex flex-col gap-3">
-                    <span class={footerTextStyles}>Get in touch</span>
-                    <span class={footerTextStyles}>with me on</span>
-                </div>
-                <div class="flex flex-col gap-3">
-                    {
-                        externalLinks.map((link) => (
-                            <a class:list={[footerTextStyles, "block"]} href={link.link}>
-                                {link.text}
-                            </a>
-                        ))
-                    }
+                <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
+                    {socials.map(social => (
+                        <a href={social.data.link}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox={social.data.svgLogo.viewBox} width="32" height="32">
+                                <path class="fill-foreground" d={social.data.svgLogo.d}></path>
+                            </svg>
+                        </a>
+                    ))}
                 </div>
             </div>
         </div>
