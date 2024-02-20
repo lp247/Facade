@@ -7,20 +7,19 @@ import {getCollection} from "astro:content";
 import TitleBar from "@components/TitleBar.astro";
 
 export interface Props {
-    class?: string;
     heading: string;
     subheading?: string | undefined;
     hideHeaders?: boolean | undefined;
 }
 
 const contentColumnStyles = "m-0 w-screen max-w-[800px] p-7 mx-auto";
-const {class: className, heading, subheading, hideHeaders} = Astro.props as Props;
+const {heading, subheading, hideHeaders} = Astro.props as Props;
 const socials = await getCollection("socials");
 ---
 
 <Root title={heading}>
     <TitleBar color="foreground" />
-    <div class:list={[contentColumnStyles, "min-h-screen", className]}>
+    <div class:list={[contentColumnStyles, "min-h-screen"]}>
         <BreadCrumbs />
         {!hideHeaders && <h1>{heading}</h1>}
         {!hideHeaders && subheading && <span class="mt-2 text-2xl font-light">{subheading}</span>}
