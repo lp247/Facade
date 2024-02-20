@@ -6,7 +6,7 @@ import BreadCrumbs from "@components/BreadCrumbs.astro";
 import {getCollection} from "astro:content";
 import TitleBar from "@components/TitleBar.astro";
 
-export interface FrameProps {
+export interface Props {
     class?: string;
     heading: string;
     subheading?: string | undefined;
@@ -14,7 +14,7 @@ export interface FrameProps {
 }
 
 const contentColumnStyles = "m-0 w-screen max-w-[800px] p-7 mx-auto";
-const {class: className, heading, subheading, hideHeaders} = Astro.props as FrameProps;
+const {class: className, heading, subheading, hideHeaders} = Astro.props as Props;
 const socials = await getCollection("socials");
 ---
 

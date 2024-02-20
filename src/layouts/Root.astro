@@ -1,12 +1,12 @@
 ---
 import "../main.css";
 
-export interface FrameProps {
+export interface Props {
     title: string;
     class?: string;
 }
 
-const {title, class: className} = Astro.props as FrameProps;
+const {title, class: className} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
