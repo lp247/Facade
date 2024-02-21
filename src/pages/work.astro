@@ -10,7 +10,7 @@ const entriesWithContent = await Promise.all(
             ...entry,
             rendered: Content,
         };
-    })
+    }),
 );
 entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1));
 ---
@@ -20,9 +20,7 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
         entriesWithContent.map((entry) => {
             const Content = entry.rendered.Content;
             const startString = new Date(entry.data.startDate).toISOString().substring(0, 10);
-            const endString = !!entry.data.endDate
-                ? new Date(entry.data.endDate).toISOString().substring(0, 10)
-                : "Today";
+            const endString = !!entry.data.endDate ? new Date(entry.data.endDate).toISOString().substring(0, 10) : "Today";
             const location = entry.data.location;
             return (
                 <>

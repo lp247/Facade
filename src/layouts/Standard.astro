@@ -41,12 +41,7 @@ const socials = await getCollection("socials");
                 {
                     socials.map((social) => (
                         <a href={social.data.link}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox={social.data.svgLogo.viewBox}
-                                width="32"
-                                height="32"
-                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox={social.data.svgLogo.viewBox} width="32" height="32">
                                 <path class="fill-foreground" d={social.data.svgLogo.d} />
                             </svg>
                         </a>

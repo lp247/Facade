@@ -26,4 +26,4 @@ function getColorClasses(status: Status): string {
 const {status, class: className} = Astro.props as Props;
 ---
 
-<span class:list={["inline-block text-xs font-bold font-sans", getColorClasses(status), className]}>{status}</span>
+<span class:list={["inline-block", "text-xs", "font-bold", "font-sans", getColorClasses(status), className]}>{status}</span>

@@ -57,8 +57,26 @@ const relatedJobs = jobs.filter((job) => job.data.techs.findIndex((tech) => tech
     </div>
     <hr class="my-4" />
     <div class="flex flex-row gap-6">
-        {website && <ExternalLink class="font-sans" href={website}>Project Website</ExternalLink>}
-        {github && <ExternalLink class="font-sans" href={github}>Code on GitHub</ExternalLink>}
-        {wikipedia && <ExternalLink class="font-sans" href={wikipedia}>Wikipedia Article</ExternalLink>}
+        {
+            website && (
+                <ExternalLink class="font-sans" href={website}>
+                    Project Website
+                </ExternalLink>
+            )
+        }
+        {
+            github && (
+                <ExternalLink class="font-sans" href={github}>
+                    Code on GitHub
+                </ExternalLink>
+            )
+        }
+        {
+            wikipedia && (
+                <ExternalLink class="font-sans" href={wikipedia}>
+                    Wikipedia Article
+                </ExternalLink>
+            )
+        }
     </div>
 </Standard>
