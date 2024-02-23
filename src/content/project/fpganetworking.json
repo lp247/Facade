@@ -1,7 +1,7 @@
 {
     "name": "FPGA-Networking",
     "headline": "[Study Project] Implementation of the UDP Network Protocol on an FPGA development board",
-    "techs": ["fpga", "hls", "udp", "cpp", "vivado"],
+    "techs": ["fpga", "hls", "udp", "cpp", "vivado", "git"],
     "github": "https://github.com/tavnvs/FPGA-Networking",
     "year": 2020,
     "status": "Finished"

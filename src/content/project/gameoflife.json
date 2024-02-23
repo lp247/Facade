@@ -1,7 +1,7 @@
 {
     "name": "Conway's Game of Life",
     "headline": "Implemented in the Browser",
-    "techs": ["html", "css", "javascript", "typescript", "vite", "vitest", "eslint", "prettier"],
+    "techs": ["html", "css", "javascript", "typescript", "vite", "vitest", "eslint", "prettier", "git"],
     "github": "https://github.com/lp247/ConwaysGameOfLife",
     "webpage": "https://gol.lp247.dev",
     "year": 2024,
