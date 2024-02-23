@@ -1,6 +1,7 @@
 ---
 import {getCollection} from "astro:content";
 import Standard from "@layouts/Standard.astro";
+import TechBadgeList from "@components/TechBadgeList.astro";
 
 const entries = await getCollection("job");
 const entriesWithContent = await Promise.all(
@@ -24,12 +25,15 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
             const location = entry.data.location;
             return (
                 <div id={entry.slug}>
-                    <h2 class="mb-0">
+                    <h2 class="mb-2 mt-12">
                         {entry.data.jobDescription} @ {entry.data.company}
                     </h2>
-                    <p class="mt-0 font-bold text-sm font-sans">
+                    <hr />
+                    <p class="my-2 font-bold text-sm font-sans">
                         From {startString} until {endString} in {location}
                     </p>
+                    <TechBadgeList class="mb-2" techs={entry.data.techs.map((t) => t.id)} />
+                    <hr />
                     <Content />
                 </div>
             );
