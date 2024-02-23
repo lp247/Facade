@@ -1,0 +1,8 @@
+{
+    "name": "Ops Magna",
+    "headline": "A todo app with repeating tasks in any timely configuration",
+    "techs": ["react", "redux", "javascript", "webpack"],
+    "github": "https://github.com/tavnvs/Ops-Magna",
+    "year": 2018,
+    "status": "Finished"
+}

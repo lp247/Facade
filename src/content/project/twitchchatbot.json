@@ -1,0 +1,8 @@
+{
+    "name": "TwitchChatBot",
+    "headline": "A Chat Bot for Twitch Chats Written in Rust",
+    "techs": ["rust", "twitchtv"],
+    "github": "https://github.com/CaptainCallback/TwitchChatBot",
+    "year": 2021,
+    "status": "On Hold"
+}

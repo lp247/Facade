@@ -1,0 +1,8 @@
+{
+    "name": "FPGA-ML",
+    "headline": "[Study Project] Implementation of Machine Learning Inference on an FPGA",
+    "techs": ["fpga", "python", "tensorflow", "pytorch", "hls4ml"],
+    "github": "https://github.com/tavnvs/FPGAML-Tutorial",
+    "year": 2022,
+    "status": "In Progress"
+}

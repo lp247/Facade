@@ -1,0 +1,8 @@
+{
+    "name": "Facade",
+    "headline": "The website you are browsing right now!",
+    "techs": ["astro", "tailwindcss", "vercel"],
+    "github": "https://github.com/tavnvs/Facade",
+    "year": 2023,
+    "status": "In Progress"
+}

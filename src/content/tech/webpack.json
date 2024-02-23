@@ -1,0 +1,7 @@
+{
+    "name": "Webpack",
+    "description": "A bundler for javascript and friends. Packs many modules into a few bundled assets.",
+    "website": "https://webpack.js.org/",
+    "github": "https://github.com/webpack/webpack",
+    "wikipedia": "https://en.wikipedia.org/wiki/Webpack"
+}

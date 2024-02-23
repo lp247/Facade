@@ -158,55 +158,43 @@ declare module 'astro:content' {
   data: InferEntrySchema<"job">
 } & { render(): Render[".mdx"] };
 };
-"project": {
-"facade.mdx": {
-	id: "facade.mdx";
-  slug: "facade";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-"fpgaml.mdx": {
-	id: "fpgaml.mdx";
-  slug: "fpgaml";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-"fpganetworking.mdx": {
-	id: "fpganetworking.mdx";
-  slug: "fpganetworking";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-"gameoflife.mdx": {
-	id: "gameoflife.mdx";
-  slug: "gameoflife";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-"opsmagna.mdx": {
-	id: "opsmagna.mdx";
-  slug: "opsmagna";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-"twitchchatbot.mdx": {
-	id: "twitchchatbot.mdx";
-  slug: "twitchchatbot";
-  body: string;
-  collection: "project";
-  data: InferEntrySchema<"project">
-} & { render(): Render[".mdx"] };
-};
 
 	};
 
 	type DataEntryMap = {
-		"socials": {
+		"project": {
+"facade": {
+	id: "facade";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+"fpgaml": {
+	id: "fpgaml";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+"fpganetworking": {
+	id: "fpganetworking";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+"gameoflife": {
+	id: "gameoflife";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+"opsmagna": {
+	id: "opsmagna";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+"twitchchatbot": {
+	id: "twitchchatbot";
+  collection: "project";
+  data: InferEntrySchema<"project">
+};
+};
+"socials": {
 "github": {
 	id: "github";
   collection: "socials";
@@ -386,6 +374,11 @@ declare module 'astro:content' {
 };
 "vivado": {
 	id: "vivado";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"webpack": {
+	id: "webpack";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
