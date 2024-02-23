@@ -47,7 +47,7 @@ const relatedJobs = jobs.filter((job) => job.data.techs.findIndex((tech) => tech
                 <div class="flex flex-row gap-4">
                     <span class={metaTextStyles}>Used at Work:</span>
                     {relatedJobs.map((job) => (
-                        <a class={metaTextStyles} href="/career">
+                        <a class={metaTextStyles} href={"/work#" + job.slug}>
                             {job.data.company}
                         </a>
                     ))}

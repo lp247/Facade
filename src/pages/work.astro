@@ -23,7 +23,7 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
             const endString = !!entry.data.endDate ? new Date(entry.data.endDate).toISOString().substring(0, 10) : "Today";
             const location = entry.data.location;
             return (
-                <>
+                <div id={entry.slug}>
                     <h2 class="mb-0">
                         {entry.data.jobDescription} @ {entry.data.company}
                     </h2>
@@ -31,7 +31,7 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
                         From {startString} until {endString} in {location}
                     </p>
                     <Content />
-                </>
+                </div>
             );
         })
     }
