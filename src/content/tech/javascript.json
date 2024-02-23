@@ -1,6 +1,6 @@
 {
-    "name": "Javascript",
-    "description": "Javascript is the main language for creating dynamic websites. It can, additionally, also be used natively with the node.js runtime.",
+    "name": "JavaScript / ECMAScript",
+    "description": "JavaScript is the main language for creating dynamic websites. It can, additionally, also be used natively with the node.js runtime.",
     "website": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     "wikipedia": "https://en.wikipedia.org/wiki/JavaScript"
 }

@@ -1,5 +1,5 @@
 {
-    "name": "HLS4ML",
+    "name": "hls4ml",
     "description": "A Python package for machine learning inference in FPGAs",
     "website": "https://fastmachinelearning.org/hls4ml/",
     "github": "https://github.com/fastmachinelearning/hls4ml"
