@@ -2,16 +2,20 @@
 import type {CollectionEntry} from "astro:content";
 import ExternalLink from "./ExternalLink.astro";
 import TechBadgeList from "./TechBadgeList.astro";
+import {getCollection} from "astro:content";
 
 type Project = CollectionEntry<"project">;
 type Status = Project["data"]["status"];
+type Scope = Project["data"]["scope"];
 
 interface Props {
     project: Project;
     class?: string;
 }
 
-function getColorClasses(status: Status): string {
+const jobs = await getCollection("job");
+
+function getColorClassesByStatus(status: Status): string {
     switch (status) {
         case "In Progress":
             return "border-green-600 text-green-600";
@@ -26,15 +30,38 @@ function getColorClasses(status: Status): string {
     }
 }
 
+function getScopeFormatting(scope: Scope): {text: string; bgColor: string; textColor: string; link?: string} {
+    if (typeof scope === "string") {
+        switch (scope) {
+            case "personal":
+                return {text: "Personal Project", bgColor: "bg-blue-200", textColor: "text-blue-700"};
+            case "academic":
+                return {text: "Academic Project", bgColor: "bg-green-200", textColor: "text-green-700"};
+            default:
+                throw new Error("Unsupported scope");
+        }
+    } else {
+        return {
+            text: `Work Project at ${jobs.find((job) => job.slug === scope.slug)?.data.company}`,
+            bgColor: "bg-yellow-200",
+            textColor: "text-yellow-700",
+            link: `/work#${scope.slug}`,
+        };
+    }
+}
+
 const {project, class: className} = Astro.props as Props;
 const {year, status, github, techs, webpage} = project.data;
+const {text: scopeText, bgColor: scopeBgColor, textColor: scopeTextColor, link: jobLink} = getScopeFormatting(project.data.scope);
 ---
 
 <div class:list={["flex", "flex-col", className]}>
     <div class="flex flex-row mb-4 gap-4 items-center">
+        <a href={jobLink} class:list={["font-sans", "text-sm", "font-bold", "py-1", "px-3", "rounded", scopeBgColor, scopeTextColor]}>{scopeText}</a>
+        <span>|</span>
         <span class="font-sans text-sm font-bold">{year}</span>
         <span>|</span>
-        <span class:list={["inline-block", "text-xs", "font-bold", "font-sans", getColorClasses(status)]}>{status}</span>
+        <span class:list={["inline-block", "text-xs", "font-bold", "font-sans", getColorClassesByStatus(status)]}>{status}</span>
     </div>
     <TechBadgeList techs={techs.map((tech) => tech.id)} />
     <div class="flex flex-row mt-4 gap-4 items-center">

@@ -11,6 +11,7 @@ const project = defineCollection({
         webpage: z.optional(z.string().url()),
         year: z.number(),
         status: z.enum(["In Progress", "Finished", "On Hold", "Planned"]),
+        scope: z.union([reference("job"), z.literal("academic"), z.literal("personal")]),
     }),
 });
 
