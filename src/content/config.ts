@@ -1,10 +1,11 @@
 import {z, defineCollection, reference} from "astro:content";
 
 const project = defineCollection({
-    type: "data",
+    type: "content",
     schema: z.object({
         name: z.string(),
         headline: z.string(),
+        summary: z.string(),
         techs: z.array(reference("tech")),
         github: z.optional(z.string().url()),
         webpage: z.optional(z.string().url()),
