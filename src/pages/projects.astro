@@ -1,9 +1,7 @@
 ---
 import {getCollection} from "astro:content";
 import Standard from "@layouts/Standard.astro";
-import TechBadgeList from "@components/TechBadgeList.astro";
-import ExternalLink from "@components/ExternalLink.astro";
-import ProjectStatus from "@components/ProjectStatus.astro";
+import ProjectMeta from "@components/ProjectMeta.astro";
 
 const projects = await getCollection("project");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
@@ -14,7 +12,7 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
         {
             sortedProjects.map((project) => {
                 const {id, slug} = project;
-                const {year, techs, status, github, webpage, name, headline} = project.data;
+                const {name, headline} = project.data;
                 return (
                     <div id={id} class="flex flex-col bg-slate-100 rounded-xl items-stretch overflow-hidden shadow-sm">
                         <div class="p-10 bg-yellow-400 bg-gradient-to-r from-cyan-950 to-stone-800">
@@ -25,26 +23,7 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
                             </h2>
                             <p class="m-0 text-white font-sans">{headline}</p>
                         </div>
-                        <div class="p-10">
-                            <div class="flex row mb-4 gap-4 items-center">
-                                <span class="font-sans text-sm font-bold">{year}</span>
-                                <span>|</span>
-                                <ProjectStatus status={status} />
-                            </div>
-                            <TechBadgeList techs={techs.map((tech) => tech.id)} />
-                            <div class="flex row mt-4 gap-4 items-center">
-                                {github && (
-                                    <ExternalLink class="mt-4 font-sans" href={github}>
-                                        Code on GitHub
-                                    </ExternalLink>
-                                )}
-                                {webpage && (
-                                    <ExternalLink class="mt-4 font-sans" href={webpage}>
-                                        Link to page
-                                    </ExternalLink>
-                                )}
-                            </div>
-                        </div>
+                        <ProjectMeta class="p-10" project={project} />
                     </div>
                 );
             })

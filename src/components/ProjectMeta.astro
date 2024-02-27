@@ -1,0 +1,56 @@
+---
+import type {CollectionEntry} from "astro:content";
+import ExternalLink from "./ExternalLink.astro";
+import TechBadgeList from "./TechBadgeList.astro";
+
+type Project = CollectionEntry<"project">;
+type Status = Project["data"]["status"];
+
+interface Props {
+    project: Project;
+    class?: string;
+}
+
+function getColorClasses(status: Status): string {
+    switch (status) {
+        case "In Progress":
+            return "border-green-600 text-green-600";
+        case "Finished":
+            return "border-blue-600 text-blue-600";
+        case "On Hold":
+            return "border-slate-500 text-slate-500";
+        case "Planned":
+            return "";
+        default:
+            throw new Error("Unsupported status");
+    }
+}
+
+const {project, class: className} = Astro.props as Props;
+const {year, status, github, techs, webpage} = project.data;
+---
+
+<div class:list={["flex", "flex-col", className]}>
+    <div class="flex flex-row mb-4 gap-4 items-center">
+        <span class="font-sans text-sm font-bold">{year}</span>
+        <span>|</span>
+        <span class:list={["inline-block", "text-xs", "font-bold", "font-sans", getColorClasses(status)]}>{status}</span>
+    </div>
+    <TechBadgeList techs={techs.map((tech) => tech.id)} />
+    <div class="flex flex-row mt-4 gap-4 items-center">
+        {
+            github && (
+                <ExternalLink class="mt-4" href={github}>
+                    Code on GitHub
+                </ExternalLink>
+            )
+        }
+        {
+            webpage && (
+                <ExternalLink class="mt-4" href={webpage}>
+                    Link to page
+                </ExternalLink>
+            )
+        }
+    </div>
+</div>
