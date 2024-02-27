@@ -9,6 +9,6 @@ interface Props {
 const {techs, class: className} = Astro.props as Props;
 ---
 
-<div class:list={["flex", "row", "border-box", "gap-1.5", "place-content-start", "flex-wrap", className]}>
+<div class:list={["flex", "flex-row", "border-box", "gap-1.5", "place-content-start", "flex-wrap", className]}>
     {techs.map((tech) => <TechBadge tech={tech} />)}
 </div>
