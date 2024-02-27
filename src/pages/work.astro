@@ -14,6 +14,7 @@ const entriesWithContent = await Promise.all(
     }),
 );
 entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1));
+const projects = await getCollection("project");
 ---
 
 <Standard heading="Work Experience">
@@ -23,6 +24,10 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
             const startString = new Date(entry.data.startDate).toISOString().substring(0, 10);
             const endString = !!entry.data.endDate ? new Date(entry.data.endDate).toISOString().substring(0, 10) : "Today";
             const location = entry.data.location;
+            const relatedProjects = projects.filter((p) => typeof p.data.scope !== "string" && p.data.scope.slug === entry.slug);
+            const allTechIds = [...entry.data.techs.map((t) => t.id), ...relatedProjects.map((p) => p.data.techs.map((t) => t.id)).flat()].filter(
+                (item, pos, arr) => arr.indexOf(item) === pos,
+            );
             return (
                 <div id={entry.slug}>
                     <h2 class="mb-2 mt-12">
@@ -32,7 +37,19 @@ entriesWithContent.sort((a, b) => (a.data.startDate > b.data.startDate ? -1 : 1)
                     <p class="my-2 font-bold text-sm font-sans">
                         From {startString} until {endString} in {location}
                     </p>
-                    <TechBadgeList class="mb-2" techs={entry.data.techs.map((t) => t.id)} />
+                    {relatedProjects.length > 0 && (
+                        <div class="flex flex-row justify-start items-center gap-1 my-2">
+                            {relatedProjects.map((p) => (
+                                <a
+                                    href={`/project/${p.slug}`}
+                                    class="rounded px-3 py-1 font-bold text-sm font-sans text-slate-700 bg-slate-200 border-slate-300 border-2"
+                                >
+                                    {p.data.name}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                    <TechBadgeList class="mb-2" techs={allTechIds} />
                     <hr />
                     <Content />
                 </div>
