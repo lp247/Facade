@@ -1,0 +1,7 @@
+{
+    "name": "Electron",
+    "description": "Build cross-platform desktop apps with JavaScript, HTML, and CSS",
+    "website": "https://www.electronjs.org/",
+    "github": "https://github.com/electron/electron",
+    "wikipedia": "https://en.wikipedia.org/wiki/Electron_(software_framework)"
+}

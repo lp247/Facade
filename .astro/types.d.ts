@@ -159,6 +159,20 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "project": {
+"btpsandbox.mdx": {
+	id: "btpsandbox.mdx";
+  slug: "btpsandbox";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
+"electronbuildmanager.mdx": {
+	id: "electronbuildmanager.mdx";
+  slug: "electronbuildmanager";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
 "facade.mdx": {
 	id: "facade.mdx";
   slug: "facade";
@@ -194,6 +208,20 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
+"strapiplugin.mdx": {
+	id: "strapiplugin.mdx";
+  slug: "strapiplugin";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
+"trashapp.mdx": {
+	id: "trashapp.mdx";
+  slug: "trashapp";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
 "twitchchatbot.mdx": {
 	id: "twitchchatbot.mdx";
   slug: "twitchchatbot";
@@ -201,6 +229,8 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
+};
+"work": {
 };
 
 	};
@@ -224,8 +254,18 @@ declare module 'astro:content' {
 };
 };
 "tech": {
+"asana": {
+	id: "asana";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "astro": {
 	id: "astro";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"btp": {
+	id: "btp";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
@@ -254,6 +294,11 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+"electron": {
+	id: "electron";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "eslint": {
 	id: "eslint";
   collection: "tech";
@@ -271,6 +316,11 @@ declare module 'astro:content' {
 };
 "github": {
 	id: "github";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"hana": {
+	id: "hana";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
