@@ -229,6 +229,11 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+"copilot": {
+	id: "copilot";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
 "cpp": {
 	id: "cpp";
   collection: "tech";
@@ -261,6 +266,11 @@ declare module 'astro:content' {
 };
 "git": {
 	id: "git";
+  collection: "tech";
+  data: InferEntrySchema<"tech">
+};
+"github": {
+	id: "github";
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
