@@ -1,6 +1,14 @@
 ---
 import Standard from "@layouts/Standard.astro";
-import AllUsedTechBadgeList from "@components/AllUsedTechBadgeList.astro";
+import TechBadgeList from "@components/TechBadgeList.astro";
+import {getCollection} from "astro:content";
+
+const projects = await getCollection("project");
+const jobs = await getCollection("job");
+const projectTechIds = projects.flatMap((project) => project.data.techs.map((tech) => tech.id));
+const jobTechIds = jobs.flatMap((job) => job.data.techs.map((tech) => tech.id));
+// Remove all the duplicates with the Set data structure
+const allUniqueTechIds = Array.from(new Set([...projectTechIds, ...jobTechIds]));
 ---
 
 <Standard heading="Technologies">
@@ -8,5 +16,5 @@ import AllUsedTechBadgeList from "@components/AllUsedTechBadgeList.astro";
         These are all the technologies, languages, and frameworks I have worked with so far. Some of them have been used in personal projects, some have been
         used at work. Click on one of the technologies to go to the tech's page. There you can learn more about it and where I have used it.
     </p>
-    <AllUsedTechBadgeList />
+    <TechBadgeList techs={allUniqueTechIds} />
 </Standard>
