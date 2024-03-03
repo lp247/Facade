@@ -1,7 +1,8 @@
 ---
 import Standard from "@layouts/Standard.astro";
-import TechBadgeList from "@components/TechBadgeList.astro";
 import {getCollection} from "astro:content";
+import BadgeListContainer from "@components/BadgeListContainer.astro";
+import EntityBadge from "@components/EntityBadge.astro";
 
 const projects = await getCollection("project");
 const jobs = await getCollection("job");
@@ -16,5 +17,7 @@ const allUniqueTechIds = Array.from(new Set([...projectTechIds, ...jobTechIds]))
         These are all the technologies, languages, and frameworks I have worked with so far. Some of them have been used in personal projects, some have been
         used at work. Click on one of the technologies to go to the tech's page. There you can learn more about it and where I have used it.
     </p>
-    <TechBadgeList techs={allUniqueTechIds} />
+    <BadgeListContainer>
+        {allUniqueTechIds.map((x) => <EntityBadge scope="tech" text={x} link={`/tech/${x}`} />)}
+    </BadgeListContainer>
 </Standard>

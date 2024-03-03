@@ -1,8 +1,9 @@
 ---
 import type {CollectionEntry} from "astro:content";
 import ExternalLink from "./ExternalLink.astro";
-import TechBadgeList from "./TechBadgeList.astro";
-import {getCollection} from "astro:content";
+import BadgeListContainer from "./BadgeListContainer.astro";
+import {getCollection, getEntries} from "astro:content";
+import EntityBadge from "./EntityBadge.astro";
 
 type Project = CollectionEntry<"project">;
 type Status = Project["data"]["status"];
@@ -52,6 +53,7 @@ function getScopeFormatting(scope: Scope): {text: string; bgColor: string; textC
 
 const {project, class: className} = Astro.props as Props;
 const {year, status, github, techs, webpage} = project.data;
+const techEntries = await getEntries(techs);
 const {text: scopeText, bgColor: scopeBgColor, textColor: scopeTextColor, link: jobLink} = getScopeFormatting(project.data.scope);
 ---
 
@@ -63,7 +65,9 @@ const {text: scopeText, bgColor: scopeBgColor, textColor: scopeTextColor, link: 
         <span>|</span>
         <span class:list={["inline-block", "text-xs", "font-bold", "font-sans", getColorClassesByStatus(status)]}>{status}</span>
     </div>
-    <TechBadgeList techs={techs.map((tech) => tech.id)} />
+    <BadgeListContainer>
+        {techEntries.map((x) => <EntityBadge scope="tech" text={x.data.name} link={`/tech/${x.id}`} />)}
+    </BadgeListContainer>
     <div class="flex flex-row mt-4 gap-4 items-center">
         {
             github && (
