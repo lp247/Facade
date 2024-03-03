@@ -41,6 +41,31 @@
     }
 }
 
+@layer components {
+    #menuButton > line {
+        @apply rotate-0;
+        @apply origin-center;
+        @apply transition-transform;
+        @apply transition-colors;
+    }
+    #menuButton.open > line {
+        @apply translate-y-0;
+        @apply stroke-foreground;
+    }
+    #menuButton > :first-child {
+        @apply translate-y-2;
+    }
+    #menuButton > :nth-child(2) {
+        @apply -translate-y-2;
+    }
+    #menuButton.open > :first-child {
+        @apply rotate-[225deg];
+    }
+    #menuButton.open > :nth-child(2) {
+        @apply rotate-[135deg];
+    }
+}
+
 /* michroma-latin-400-normal */
 @font-face {
     font-family: "Michroma";

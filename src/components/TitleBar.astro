@@ -28,7 +28,7 @@ const textColor = isOnIndexPage ? "text-sky-100" : "text-foreground";
     ]}
 >
     <a href="/" class:list={["font-['Michroma']", "font-extrabold", "text-2xl", "select-none", "my-0", textColor]}>LP247</a>
-    <div class="flex flex-row gap-8 justify-end items-center">
+    <div class="md:flex flex-row gap-8 justify-end items-center hidden">
         {
             mainLinks.map((link) => (
                 <a href={link.link} class:list={["font-bold", "font-sans", "text-base", "text-md", "whitespace-nowrap", textColor]}>
@@ -37,4 +37,24 @@ const textColor = isOnIndexPage ? "text-sky-100" : "text-foreground";
             ))
         }
     </div>
+    <div id="mobileMenu" class="flex-col w-full h-full bg-white fixed top-0 left-0 hidden p-8">
+        {
+            mainLinks.map((link) => (
+                <a href={link.link} class:list={["font-bold", "font-sans", "text-base", "text-md", "whitespace-nowrap", textColor]}>
+                    <h1>{link.text}</h1>
+                </a>
+            ))
+        }
+    </div>
+    <svg id="menuButton" viewBox="0 0 24 24" class="w-6 h-6 md:hidden cursor-pointer z-[1]">
+        <line class:list={["stroke-2", isOnIndexPage ? "stroke-sky-100" : "stroke-foreground"]} stroke-linecap="round" x1="0" y1="12" x2="24" y2="12"></line>
+        <line class:list={["stroke-2", isOnIndexPage ? "stroke-sky-100" : "stroke-foreground"]} stroke-linecap="round" x1="0" y1="12" x2="24" y2="12"></line>
+    </svg>
+    <script>
+        function toggle() {
+            document.getElementById("menuButton")?.classList.toggle("open");
+            document.getElementById("mobileMenu")?.classList.toggle("hidden");
+        }
+        document.getElementById("menuButton")?.addEventListener("click", toggle);
+    </script>
 </div>
