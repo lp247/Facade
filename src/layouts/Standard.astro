@@ -17,7 +17,7 @@ const {heading, subheading, hideHeaders} = Astro.props as Props;
 const socials = await getCollection("socials");
 ---
 
-<Root title={heading}>
+<Root title={heading} class={"pt-titlebarheight"}>
     <TitleBar />
     <div class:list={[contentColumnStyles, "min-h-screen"]}>
         <BreadCrumbs />
