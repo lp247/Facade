@@ -3,18 +3,32 @@ import mainLinks from "../config/mainLinks";
 
 interface Props {
     class?: string;
-    color: string;
+    isOnIndexPage?: boolean;
 }
 
-const {class: className, color} = Astro.props as Props;
+const {class: className, isOnIndexPage} = Astro.props as Props;
+const textColor = isOnIndexPage ? "text-sky-100" : "text-foreground";
 ---
 
-<div class:list={["w-full", "h-titlebarheight", "flex", "flex-row", "justify-between", "items-center", "border-b", "px-8", `border-b-${color}`, className]}>
-    <a href="/" class:list={["font-['Michroma']", "font-extrabold", "text-2xl", "select-none", "my-0", `text-${color}`]}>LP247</a>
+<div
+    class:list={[
+        "w-full",
+        "h-titlebarheight",
+        "flex",
+        "flex-row",
+        "justify-between",
+        "items-center",
+        "border-b",
+        "px-8",
+        isOnIndexPage ? "border-b-sky-100" : "border-b-foreground",
+        className,
+    ]}
+>
+    <a href="/" class:list={["font-['Michroma']", "font-extrabold", "text-2xl", "select-none", "my-0", textColor]}>LP247</a>
     <div class="flex flex-row gap-8 justify-end items-center">
         {
             mainLinks.map((link) => (
-                <a href={link.link} class:list={["font-bold", "font-sans", "text-base", "text-md", "whitespace-nowrap", `text-${color}`]}>
+                <a href={link.link} class:list={["font-bold", "font-sans", "text-base", "text-md", "whitespace-nowrap", textColor]}>
                     {link.text}
                 </a>
             ))

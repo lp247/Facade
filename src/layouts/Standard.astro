@@ -18,7 +18,7 @@ const socials = await getCollection("socials");
 ---
 
 <Root title={heading}>
-    <TitleBar color="foreground" />
+    <TitleBar />
     <div class:list={[contentColumnStyles, "min-h-screen"]}>
         <BreadCrumbs />
         {!hideHeaders && <h1>{heading}</h1>}
