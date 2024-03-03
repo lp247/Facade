@@ -230,8 +230,6 @@ declare module 'astro:content' {
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
 };
-"work": {
-};
 
 	};
 
@@ -454,6 +452,8 @@ declare module 'astro:content' {
   collection: "tech";
   data: InferEntrySchema<"tech">
 };
+};
+"work": {
 };
 
 	};
