@@ -15,7 +15,7 @@ interface Props {
     entry: CollectionEntry<"tech">;
 }
 
-const metaTextStyles = "text-xs font-bold font-sans";
+const metaTextStyles = "text-xs font-bold font-sans whitespace-nowrap";
 
 const {entry} = Astro.props as Props;
 const {name, description, website, github, wikipedia} = entry.data;
@@ -32,26 +32,30 @@ const relatedJobs = jobs.filter((job) => job.data.techs.findIndex((tech) => tech
     <div class="flex flex-col gap-4">
         {
             relatedProjects.length > 0 && (
-                <div class="flex flex-row gap-4">
+                <>
                     <span class={metaTextStyles}>Used in Projects:</span>
-                    {relatedProjects.map((project) => (
-                        <a class={metaTextStyles} href={"/project/" + project.slug}>
-                            {project.data.name}
-                        </a>
-                    ))}
-                </div>
+                    <div class="flex flex-row flex-wrap gap-4">
+                        {relatedProjects.map((project) => (
+                            <a class:list={metaTextStyles} href={"/project/" + project.slug}>
+                                {project.data.name}
+                            </a>
+                        ))}
+                    </div>
+                </>
             )
         }
         {
             relatedJobs.length > 0 && (
-                <div class="flex flex-row gap-4">
+                <>
                     <span class={metaTextStyles}>Used at Work:</span>
-                    {relatedJobs.map((job) => (
-                        <a class={metaTextStyles} href={"/work#" + job.slug}>
-                            {job.data.company}
-                        </a>
-                    ))}
-                </div>
+                    <div class="flex flex-row flex-wrap gap-4">
+                        {relatedJobs.map((job) => (
+                            <a class={metaTextStyles} href={"/work#" + job.slug}>
+                                {job.data.company}
+                            </a>
+                        ))}
+                    </div>
+                </>
             )
         }
     </div>
