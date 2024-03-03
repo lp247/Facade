@@ -36,6 +36,9 @@
     ul {
         @apply list-disc;
     }
+    hr {
+        @apply border border-gray-300;
+    }
 }
 
 /* michroma-latin-400-normal */
