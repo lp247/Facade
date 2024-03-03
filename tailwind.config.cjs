@@ -11,6 +11,9 @@ module.exports = {
             colors: {
                 foreground: "rgb(36,36,36)",
             },
+            spacing: {
+                titlebarheight: "80px",
+            },
         },
     },
     plugins: [],
