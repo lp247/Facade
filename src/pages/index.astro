@@ -26,9 +26,9 @@ const socials = await getCollection("socials");
             </p>
             <div></div>
         </div>
-        <div class="flex flex-col justify-end items-start">
-            <p class="font-extrabold text-xl font-sans whitespace-nowrap text-sky-100">Get in touch with me on</p>
-            <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 mt-8 flex-wrap">
+        <div class="flex flex-col justify-end items-start gap-5">
+            <p class="font-extrabold text-xl font-sans whitespace-nowrap text-sky-100 m-0">Get in touch with me on</p>
+            <div class="flex flex-row items-center justify-start justify-self-start gap-x-8 gap-y-2 m-0 flex-wrap">
                 {
                     socials.map((social) => (
                         <a href={social.data.link}>
